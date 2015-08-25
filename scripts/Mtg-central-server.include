@@ -1,0 +1,744 @@
+#
+# Variables:
+#
+# distribution{set}{product} - rarity distribution of the product
+# rarities - generate these distributions from the card data
+# promo.booster{set} - remaining booster cards to give as prizes
+
+#
+# CONSTANTS
+# =========
+
+if(!port)
+  port=29100;
+
+INITIAL_MONEY=50.0;
+GAME_BONUS=13.0;
+BET_BONUS_MULTIPLIER=1;
+LOSER_PERCENTAGE=0.2;
+DRAW_PERCENTAGE=0.4;
+PLAYSET_COUNT=4;
+DRAFT_MIN_PLAYERS=2;
+DRAFT_MAX_PLAYERS=8;
+# Number of packs per player used in a typical draft
+DRAFT_DEFAULT_PRODUCTS=3;
+DRAFT_MAX_PRODUCTS=6;
+MAX_DECK_SIZE=1000;
+
+cubecontents=(,);
+
+CUBES=(,);
+
+CUBES{"Holiday"}=(22687,11109,22542,17475,20295,16442,12119,16839,17036,22037,22592,20846,16204,18271,17611,18930,19867,17139,20722,20442,22208,22231,23292,22548,22360,15858,17021,15192,18466,19862,16497,19651,19777,9482,22386,18944,23228,23271,19856,16480,19677,17716,20158,17242,6353,13445,19760,21523,22947,13162,22829,20674,21052,21390,18226,23360,21046,17674,6704,20703,2608,17741,17450,20880,23311,12221,1982,21240,20297,17926,20362,13139,17792,18085,20412,21204,19765,16212,16951,20673,23397,19704,14332,13702,19742,23297,19781,16989,22218,21239,16598,19073,21178,18500,23382,17234,15334,21040,21375,8339,17213,6470,16029,21069,22927,7484,3932,21206,23288,23330,21144,19822,23207,21415,19701,21339,21142,21170,23331,21895,12950,17181,17798,16652,21330,22154,6038,21331,6245,10036,21213,6072,21342,22082,21094,8445,6926,21871,21256,15833,20887,23211,15874,21212,17485,11186,14292,19106,6133,18191,15667,19969,20550,20678,17891,8774,19003,22302,17235,16916,23324,22356,22842,22227,17041,22603,22515,17259,18394,19826,18005,22936,15854,8845,21344,22946,17014,3791,22881,22926,23220,20191,14260,21990,22706,6669,16329,23060,20319,21113,21175,17344,21357,13391,21324,23005,18117,2638,21042,23183,3962,21227,23061,1988,2068,21356,20171,15879,22224,17737,5026,21985,18097,22894,20915,19044,16340,18423,21811,20097,22453,19888,22183,20472,6668,13623,17767,20980,12960,22206,18209,17022,23277,15760,20303,18906,18535,20482,19708,21588,22165,16834,22027,23194,4549,23283,17875,17744,21687,20216,17512,16189,18875,23356,21377,12168,12044,11283,21134,21079,22199,8854,19091,19778,21350,19678,21075,21886,23406,18318,21522,22556,6048,23365,18699,17882,17645,12215,22186,21146,16337,22266,23309,16552,15938,21273,21497,20026,20310,23379,23150,13347,20728,19685,22338,17588,21354,15697,15976,20258,17113,16466,20348,21114,12675,18905,22623,18533,23322,20364,18335,22402,19847,17959,17416,22217,18774,21719,19938,17138,21463,18547,20505,21081,19732,21263,19790,21126,20474,4781,14303,3132,17017,19827,16799,21133,23040,23122,21319,18545,11084,22370,6879,17962,22779,16962,19165,19175,23344,22697,20116,17111,21054,19122,18042,17580,19012,19130,18550,18216,22693,19277,20346,14190,15516,19610,19724,21456,19588,18263,19825,22088,8725,19001,21638,18942,19737,21470,21407,19832,23301,20783,18658,21395,19566,17401,19069,23227,19696,19246,15028,20381,19733,20623,18830,21948,22043,22091,19769,23281,23393,23229,23274,22614,21733,23361,6871,23284,21210,22369,16835,10423,22443,22295,10805,16979,21065,10396,23235,21199,19735,21205,23034,21218,21219,21220,21221,21222,3181,21208,19111,11238,22363,22368,12621,17339,17375,17422,6168,17426,10474,17448,17460,17497,10943,17515,5141,20604,17262,20612,11604,4479,20376,13555,13777,10974,16935,17108,19808,19809,17279,7593,19834,22441,22303,21299,22405,17136,18778,21211,16851,19622,13713,21041,15819,21051,21571,21059,21060,18968,21872,19247,21586,17908,18743,18744,21914,5885,18779,19306,13590,19052,17985,13595,17997,1950,21196,21690,20958,15947,2186,2639,21214,15954,19990,19105,21248,22004,7358,18870,19394,21278,16013,21282,14322,21773,19169,19429,21312,18100,14034,18897,21321,19187,21332,14060,21337,21338,14067,21341,21820,16073,21346,23149,23155,19455,22102,22106,18132,21837,);
+
+CUBES{"Legacy"}=(17903,21403,17694,11109,22542,17475,20295,16035,16442,16974,11052,23273,15931,17036,19117,22037,18271,17611,19867,17139,20722,20442,22208,19298,22231,22281,23292,22548,22360,15858,17021,16357,15192,18466,18896,19862,16497,19651,21182,19777,9482,22386,19849,18944,23228,21125,19856,16480,19677,16779,17716,20158,17242,22156,13445,19760,21523,13162,23326,20674,16391,18189,21390,18226,23360,21046,17674,6704,20703,17310,18503,22277,18365,2608,6319,17741,17450,20880,13832,23311,17630,12221,21240,20905,20297,17926,20362,16259,13139,23018,17792,18085,21349,21590,20412,19723,21204,1375,19765,22351,21287,23397,15018,20428,19704,20218,18655,14332,18903,14050,23136,13702,19742,23297,19781,13292,16989,22218,19721,16598,19073,21178,18500,17234,21375,8339,16029,22927,22164,7484,19924,3932,22247,23288,6188,22782,23330,13966,18104,21610,20155,22968,17949,23207,22948,21415,19701,21142,19756,10871,23331,21895,22384,12950,17181,17798,16652,10962,22154,21111,23135,21342,23002,21094,8445,21145,6926,20122,20316,9611,18195,16315,15890,23394,18315,15833,23189,23211,15874,16149,14292,19106,20811,22422,18121,6133,16512,18340,18191,15667,20550,20678,20096,17891,19003,22172,13839,22302,17088,16916,18919,16089,17648,22228,15944,22356,13728,22227,19728,17041,19098,17259,18394,18005,21688,17827,22936,15854,8845,19914,17014,22274,22881,23220,20191,19794,21990,22706,16329,23060,20319,21080,5866,21175,10938,1241,17344,20670,16257,13391,22178,22478,23005,18117,23323,21042,23183,17321,3962,11995,23061,19202,5843,20342,20774,21632,15878,15879,17737,5026,23024,21985,12562,23363,18097,17889,19289,19044,16344,18423,19744,20097,19888,16115,22183,22499,21645,6668,17767,20980,18055,14526,21859,12960,22126,22206,18209,17022,23277,15760,20303,18906,18535,22132,19708,21588,16834,16514,22027,23194,23283,17744,21687,20216,18875,19416,21377,12168,16439,21798,17129,11283,21079,8854,16294,18455,18537,22686,18808,19091,20106,21937,10515,19778,17097,19678,23180,21886,17930,20657,18318,12734,22978,19345,6048,23365,11884,20188,20266,16067,18699,17882,17645,12215,22186,21146,16337,22266,23309,22619,16552,15938,16392,16007,21273,21497,20026,20310,23379,20338,23150,13347,21351,19685,12879,22338,17588,22439,21354,14410,15697,16639,15976,20258,17113,16466,15021,20348,21114,12675,18905,22623,18533,23322,22334,20364,21655,18335,22402,19847,17959,17416,22217,18774,21719,19938,17138,18547,22982,16038,21593,16124,18760,19732,21225,23328,21263,12977,20401,19727,19790,20474,4781,14504,23043,14303,17017,19827,16799,12770,14175,21319,22370,20125,20728,17962,21374,16962,19165,19175,19005,19366,21255,23344,20116,21054,19504,18268,18179,18042,22531,17580,19012,18550,19301,18216,19277,20346,21417,20174,15516,19610,19724,19607,21456,19588,18263,22049,19825,8640,8725,19001,19083,19211,21638,18942,19737,20784,21407,19832,23301,20783,18658,19566,17401,19069,23227,21253,20947,19246,15028,20381,19733,19613,19228,18830,23281,23393,23229,23274,22614,21733,23361,22369,23321,10423,22443,22295,10805,10396,23235,23034,19625,16094,15827,19642,22934,19920,19776,11238,10474,17460,22283,20017,23362,4479,20376,18981,13555,10905,20936,22270,7593,19834,22441,22405,17136,18778,13713,21041,15819,21051,21571,21059,18968,21872,19247,13752,21586,19650,17908,18743,18744,21914,5885,18779,19306,19052,17985,17997,13871,21690,20958,15947,2639,15954,19990,20235,19105,21248,22004,21488,7358,18870,19394,21278,16013,21282,21773,19169,19429,18100,14034,18897,21321,22398,19187,20311,20312,20854,21019,21020,20855,20313,20856,20314,20315,21337,21338,14067,21341,16073,21346,23149,19455,14384,22102,22106,18132,21837,);
+
+ANONYMOUS_IP="www.wizards.com";
+
+# Order in which bonus sets need to be filled out
+REWARD_ORDER = ("UG","UH","P1","P2","P3","S1","COM","PC2","C13");
+
+if(!binary_load("products"))
+{
+  products=(,);
+  products{"Beta booster"}=(50000,2.45,("BE","booster"),50000);
+  products{"Beta starter"}=(50000,7.95,("BE","starter"),50000);
+  products{"Arabian Nights booster"}=(50000,1.45,("AN","booster"),50000);
+  products{"Antiquities booster"}=(50000,1.45,("AQ","booster"),50000);
+  products{"Legends booster"}=(50000,2.45,("LG","booster"),50000);
+  products{"The Dark booster"}=(50000,1.45,("DK","booster"),50000);
+  products{"Fallen Empires booster"}=(50000,1.45,("FE","booster"),50000);
+  binary_save("products");
+}
+
+promo.booster = (,);
+
+#
+# HOOKS
+# =====
+
+# SealedStartHook(sealed player name,mode name,money,options) - This hook is called after
+#   initialization of sealed mode is complete. Current user is a
+#   player entering in the sealed mode. Note: This hook can be called more often than end hook.
+#
+def SealedStartHook
+{
+  check_card(ARG[0],1098);
+  if(users{ARG[0]}[2]{1098}[0]==0)
+  {
+    Reply("Adding some lands...");
+    AddCards(ARG[0],1098,45);
+    AddCards(ARG[0],1135,45);
+    AddCards(ARG[0],1175,45);
+    AddCards(ARG[0],1201,45);
+    AddCards(ARG[0],1254,45);
+    Refresh(1098,1135,1175,1201,1254);
+  }
+}
+
+#
+# SealedStartCount() - Return number of cards that are automatically given to new sealed users.
+#
+def SealedStartCount
+{
+  return(225);
+}
+
+# SealedEndHook() - This hook is called before ending sealed
+#   mode. Current user is sealed mode player.
+#
+def SealedEndHook
+{
+  check_card(User(),1098);
+  if(users{User()}[2]{1098}[0] > 0)
+  {
+    Reply("Removing extra lands...");
+    DelCards(User(),1098,45);
+    DelCards(User(),1135,45);
+    DelCards(User(),1175,45);
+    DelCards(User(),1201,45);
+    DelCards(User(),1254,45);
+    Refresh(1098,1135,1175,1201,1254);
+  }
+}
+
+# EndGameHook(player name who declared,result,result options,player numbers,player names,bet) - This
+#   hook is called at the beginning of the game result
+#   prosessing. Note: this hook is not called for undecided results.
+#
+def EndGameHook
+{
+  if(length(ARG[3])>1)
+  {
+    push(p);
+    push(c);
+    for(p)(ARG[4])
+    {
+      if(users{p}[4][1][0]==0)
+      {
+         if(!has_entry("reward",users{UserWithoutMode(p)}[3][0]))
+           InitializeReward(p);
+         RewardCard(UserWithoutMode(p),users{UserWithoutMode(p)}[3][0]{"reward"});
+         
+         c=random(300);
+         if(c==297)
+           RewardCard(UserWithoutMode(p),"COM");
+         else if(c==298)
+           RewardCard(UserWithoutMode(p),"PC2");
+         else if(c==299)
+           RewardCard(UserWithoutMode(p),"C13");
+      }
+    }
+    c=pop();
+    p=pop();
+  }
+}
+
+#
+# RegisterHook(set) - Called after registering a set. Used for updating reward sets.
+#
+def RegisterHook
+{
+  push(i);
+  
+  i=find(ARG[0],REWARD_ORDER);
+  
+  if(i != NULL && i+1 < length(REWARD_ORDER))
+  {
+    users{User()}[3][0]{"reward"} = REWARD_ORDER[i+1];
+    Reply("{green}The reward cards you receive after a game will now be from {yellow}"+REWARD_ORDER[i+1]+"{green}.");
+    Reply("{green}If you still want to collect cards from the old set, you can use {yellow}/set reward "+REWARD_ORDER[i]+"{green}.");
+  }
+  
+  i=pop();
+}
+
+#
+# SetHook(setting name, value) - Called before checking a setting to apply. Return 0 if not handled.
+#
+def SetHook
+{
+  push(r);
+  push(s);
+  return(0);
+  
+  if(ARG[0]=="reward")
+  {
+    return(1);
+    if(typeof(ARG[1])!="string")
+    {
+      if(!has_entry("reward",users{UserWithoutMode()}[3][0]))
+        InitializeReward(UserWithoutMode());
+      Reply("{green}You are currently set up to receive your reward cards from {yellow}"+users{UserWithoutMode()}[3][0]{"reward"}+"{green}.");
+    }
+    else
+    {
+      s=uc(ARG[1]);
+      r=find(s,REWARD_ORDER);
+  
+      if(r != NULL)
+      {
+        push(f);
+        f=0;
+        
+# a player can always collect a reward set they've already completed
+        if(count(s,users{UserWithoutMode()}[3][2]))
+          f=1;
+# a player can always collect the first reward set
+        else if(r==0)
+          f=1;
+# otherwise, a player can only collect a reward set if all the previous sets in line are registered
+        else
+        {
+          for(s)(r)
+          {
+            if(count(REWARD_ORDER[s],users{UserWithoutMode()}[3][2]))
+              f=f+1;
+          }
+          f=f/r;
+        }
+        
+        if(f)
+        {
+          users{UserWithoutMode()}[3][0]{"reward"} = s;
+          Reply("{green}The reward cards you receive after a game will now be from {yellow}"+s+"{green}.");
+        }
+        else
+          Reply("{red}You still have other reward sets to collect before you can move on to that one.");
+        f=pop();
+      }
+      else
+        Reply("{red}That isn't a reward set. The reward sets are {yellow}"+join(REWARD_ORDER,", ")+"{red}, and they must be collected in that order.");
+    }
+  }
+  
+  s=pop();
+  r=pop();
+}
+
+# FUNCTIONS:
+#
+# InitializeReward(player) - Set a player's reward set to the next one they need to complete.
+#
+def InitializeReward
+{
+  push(r);
+  push(s);
+  
+  r="";
+  for(s)(REWARD_ORDER)
+  {
+    if(r=="" && !count(s,users{UserWithoutMode(ARG)}[3][2]))
+      r=s;
+  } 
+  
+  if(r=="")
+    r=s;
+  
+  users{UserWithoutMode(ARG)}[3][0]{"reward"} = r;
+  
+  s=pop();
+  r=pop();
+}
+
+#
+# RewardCard(player, set) - Give player a bonus card selected from the set.
+#
+def RewardCard
+{
+  push(p);
+  push(c);
+  push(s);
+  push(ready);
+  p=ARG[0];
+  s=ARG[1];
+  if(length(s)<1)
+  {
+    if(Con(p)>-1)
+      Send(Con(p),("Message","{red}You were supposed to get a reward card for the game, but something bad happened. Contact a server administrator."));
+    Log("Attempted to give "+p+" a reward card from bad set: "+tostr(s));
+  }
+  else
+  {
+    if(!has_entry(s,promo.booster))
+      promo.booster{s} = (,);
+  
+    if(!length(promo.booster{s}))
+      promo.booster{s}=shuffle(flatten(Produce(s,"booster",1)));
+  }
+  
+  c=first(promo.booster{s});
+  promo.booster{s}=tail(promo.booster{s});
+  AddCard(p,c);
+  SendAll("Message","{blue}"+p+" receives{gold} #"+c+"# {blue}as a reward for the game.");
+  if(Con(p)>-1)
+    Send(Con(p),("SetCardbook",((c,users{p}[2]{c}),)));
+           
+  ready=pop();
+  s=pop();
+  c=pop();
+  p=pop();
+}
+
+
+command.acl{"/addvirtualproduct"}=(-1,("God","Salesman"));
+
+#
+# CommandAddvirtualproduct(num, virtual set code, type, price, name) - Implementation of the command /addvirtualproduct.
+#  Adds a virtual product, which needs its own distribution or specific function.
+#
+def CommandAddvirtualproduct
+{
+  push(n);
+  push(b);
+  push(p);
+  push(i);
+  n=toint(ARG[0]);
+  b=(ARG[1],ARG[2]);
+  p=toreal(ARG[3]);
+  if(length(ARG)>5)
+    for(i)(length(ARG)-5)
+      ARG[4]=ARG[4]+" "+ARG[5+i];
+  if(n==0)
+    Reply("{red}First argument must be > 0 (# of products).");
+  else if(p <= 0.0)
+    Reply("{red}Fourth argument must be > 0.0 (# price).");
+  else if(length(ARG)<5)
+    Reply("{red}Not enough arguments.");
+  else
+  {
+    push(e);
+    if(!has_entry(ARG[1],set.data))
+    {
+      i=ARG[4]+" "+ARG[2];
+      if(has_entry(i,products))
+        Reply("{red}Product already added.");
+      else
+      {
+        e=(n,p,b,n);
+        SendAll("Message","{green}New product "+i+" arrived!");
+        products{i}=e;
+        SendAll("SetProducts",products);
+      }
+    }
+    else
+      Reply("{red}"+ARG[1]+" is a valid product code. Use /addproduct instead.");
+    e=pop();
+  }
+  i=pop();
+  p=pop();
+  b=pop();
+  n=pop();
+}
+
+#
+# InitDistributions() - Initialize product distribution data.
+#
+def InitDistributions
+{
+  distribution=(,);
+# BE products have custom procedure
+  distribution{"AN"}=(,);
+  distribution{"AN"}{"booster"}=((5,"C"),(2,"U"),(1,"R"));
+  distribution{"AQ"}=(,);
+  distribution{"AQ"}{"booster"}=((5,"C"),(2,"U"),(1,"R"));
+  distribution{"LG"}=(,);
+  distribution{"LG"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"DK"}=(,);
+  distribution{"DK"}{"booster"}=((5,"C"),(2,"U"),(1,"R"));
+  distribution{"FE"}=(,);
+  distribution{"FE"}{"booster"}=((5,"C"),(2,"U"),(1,"R"));
+  distribution{"IA"}=(,);
+  distribution{"IA"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"IA"}{"starter"}=((22,"2*L"),(26,"C"),(9,"U"),(3,"R"));
+  distribution{"HL"}=(,);
+  distribution{"HL"}{"booster"}=((5,"C"),(2,"U"),(1,"R"));
+  distribution{"AL"}=(,);
+  distribution{"AL"}{"booster"}=((8,"C"),(3,"U"),(1,"R"));
+  distribution{"MI"}=(,);
+  distribution{"MI"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"MI"}{"starter"}=((22,"2*L"),(26,"C"),(9,"U"),(3,"R"));
+  distribution{"VI"}=(,);
+  distribution{"VI"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"WL"}=(,);
+  distribution{"WL"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"TE"}=(,);
+  distribution{"TE"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"TE"}{"starter"}=((22,"2*L"),(26,"C"),(9,"U"),(3,"R"));
+  distribution{"SH"}=(,);
+  distribution{"SH"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"EX"}=(,);
+  distribution{"EX"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"US"}=(,);
+  distribution{"US"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"US"}{"starter"}=((30,"2*L"),(32,"C"),(10,"U"),(3,"R"));
+  distribution{"UL"}=(,);
+  distribution{"UL"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"UD"}=(,);
+  distribution{"UD"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"MM"}=(,);
+  distribution{"MM"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"MM"}{"starter"}=((30,"2*L"),(32,"C"),(10,"U"),(3,"R"));
+  distribution{"NE"}=(,);
+  distribution{"NE"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"PY"}=(,);
+  distribution{"PY"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"IN"}=(,);
+  distribution{"IN"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"IN"}{"starter"}=((30,"2*L"),(32,"C"),(10,"U"),(3,"R"));
+  distribution{"PS"}=(,);
+  distribution{"PS"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"AP"}=(,);
+  distribution{"AP"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"OD"}=(,);
+  distribution{"OD"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"OD"}{"starter"}=((30,"2*L"),(32,"C"),(10,"U"),(3,"R"));
+  distribution{"UG"}=(,);
+  distribution{"UG"}{"booster"}=((1,"L"),(6,"C"),(2,"U"),(1,"R"));
+  distribution{"TO"}=(,);
+  distribution{"TO"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"JD"}=(,);
+  distribution{"JD"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"ON"}=(,);
+  distribution{"ON"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"ON"}{"starter"}=((30,"2*L"),(32,"C"),(10,"U"),(3,"R"));
+  distribution{"LE"}=(,);
+  distribution{"LE"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"SC"}=(,);
+  distribution{"SC"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"MR"}=(,);
+  distribution{"MR"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"MR"}{"starter"}=((30,"2*L"),(32,"C"),(10,"U"),(3,"R"));
+  distribution{"4TH"}=(,);
+  distribution{"4TH"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"4TH"}{"starter"}=((22,"2*L"),(26,"C"),(9,"U"),(3,"R"));
+  distribution{"5TH"}=(,);
+  distribution{"5TH"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"5TH"}{"starter"}=((22,"2*L"),(26,"C"),(9,"U"),(3,"R"));
+  distribution{"6TH"}=(,);
+  distribution{"6TH"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"6TH"}{"starter"}=((30,"2*L"),(32,"C"),(10,"U"),(3,"R"));
+  distribution{"7TH"}=(,);
+  distribution{"7TH"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"R"));
+  distribution{"7TH"}{"starter"}=((30,"2*L"),(32,"C"),(10,"U"),(3,"R"));
+  distribution{"8TH"}=(,);
+  distribution{"8TH"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"8TH"}{"starter"}=((30,"2*L"),(32,"C"),(10,"U"),(3,"R"));
+  distribution{"9TH"}=(,);
+  distribution{"9TH"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"9TH"}{"starter"}=((30,"2*L"),(32,"C"),(10,"U"),(3,"R"));
+  distribution{"XE"}=(,);
+  distribution{"XE"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"XE"}{"starter"}=((30,"2*L"),(32,"C"),(10,"U"),(3,"R"));
+  distribution{"M10"}=(,);
+  distribution{"M10"}{"booster"}=((11,"C"),(3,"U"),(1,"R+R+M"));
+  distribution{"M11"}=(,);
+  distribution{"M11"}{"booster"}=((11,"C"),(3,"U"),(1,"R+R+M"));
+  distribution{"M12"}=(,);
+  distribution{"M12"}{"booster"}=((11,"C"),(3,"U"),(1,"R+R+M"));
+  distribution{"RV"}=(,);
+  distribution{"RV"}{"booster"}=((11,"C+3*L"),(3,"U+2*L"),(1,"R"));
+  distribution{"RV"}{"starter"}=((45,"C+3*L"),(13,"U+2*L"),(2,"R"));
+  distribution{"DS"}=(,);
+  distribution{"DS"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"FD"}=(,);
+  distribution{"FD"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"CK"}=(,);
+  distribution{"CK"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"CK"}{"starter"}=((30,"2*L"),(32,"C"),(10,"U"),(3,"R"));
+  distribution{"UH"}=(,);
+  distribution{"UH"}{"booster"}=((10,"C"),(3,"U"),(1,"L"),(1,"R"));
+  distribution{"BK"}=(,);
+  distribution{"BK"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"R"));
+  distribution{"P1"}=(,);
+  distribution{"P1"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"R"));
+  distribution{"P2"}=(,);
+  distribution{"P2"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"R"));
+  distribution{"P3"}=(,);
+  distribution{"P3"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"R"));
+  distribution{"S1"}=(,);
+  distribution{"S1"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"R"));
+  distribution{"SK"}=(,);
+  distribution{"SK"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"RA"}=(,);
+  distribution{"RA"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"RA"}{"starter"}=((30,"2*L"),(32,"C"),(10,"U"),(3,"R"));
+  distribution{"GP"}=(,);
+  distribution{"GP"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"DI"}=(,);
+  distribution{"DI"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"CS"}=(,);
+  distribution{"CS"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"TS"}=(,);
+  distribution{"TS"}{"booster"}=((10,"C"),(3,"U"),(1,"S"),(1,"R"));
+  distribution{"TS"}{"starter"}=((30,"2*L"),(29,"C"),(10,"U"),(3,"S"),(3,"R"));
+  distribution{"PC"}=(,);
+  distribution{"PC"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"FS"}=(,);
+  distribution{"FS"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"LRW"}=(,);
+  distribution{"LRW"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"R"));
+  distribution{"MOR"}=(,);
+  distribution{"MOR"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"SM"}=(,);
+  distribution{"SM"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"R"));
+  distribution{"EVE"}=(,);
+  distribution{"EVE"}{"booster"}=((11,"C"),(3,"U"),(1,"R"));
+  distribution{"ALA"}=(,);
+  distribution{"ALA"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"CFX"}=(,);
+  distribution{"CFX"}{"booster"}=((11,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"ARE"}=(,);
+  distribution{"ARE"}{"booster"}=((11,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"ZDK"}=(,);
+  distribution{"ZDK"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"WWK"}=(,);
+  distribution{"WWK"}{"booster"}=((11,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"ROE"}=(,);
+  distribution{"ROE"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"SOM"}=(,);
+  distribution{"SOM"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"MBS"}=(,);
+  distribution{"MBS"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"NPH"}=(,);
+  distribution{"NPH"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"ISD"}=(,);
+  distribution{"ISD"}{"booster"}=((1,"L"),(9,"C"),(3,"U"),(1,"2*R+M"),(1,"11*SC+6*SU+2*SR+SM"));
+  distribution{"DKA"}=(,);
+  distribution{"DKA"}{"booster"}=((1,"ISD/L"),(9,"C"),(3,"U"),(1,"2*R+M"),(1,"12*SC+6*SU+2*SR+SM"));
+  distribution{"AVR"}=(,);
+  distribution{"AVR"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"M13"}=(,);
+  distribution{"M13"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+# these next three sets don't actually have boosters, but the reward function needs to be able to generate them
+  distribution{"COM"}=(,);
+  distribution{"COM"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"PC2"}=(,);
+  distribution{"PC2"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"C13"}=(,);
+  distribution{"C13"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"RTR"}=(,);
+  distribution{"RTR"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"GTC"}=(,);
+  distribution{"GTC"}{"booster"}=((1,"RTR/L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"DGM"}=(,);
+  distribution{"DGM"}{"booster"}=((1,"10*L+2*RTR/RL+2*GTC/RL+ML"),(10,"C"),(3,"U"),(1,"2*R+M"));
+# the following is only for reference, since MOD has a separate procedure
+  distribution{"MOD"}=(,);
+  distribution{"MOD"}{"booster"}=((1,"12*C+6*U+2*R+M"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"M14"}=(,);
+  distribution{"M14"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"THS"}=(,);
+  distribution{"THS"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"BNG"}=(,);
+  distribution{"BNG"}{"booster"}=((1,"THS/L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"JOU"}=(,);
+  distribution{"JOU"}{"booster"}=((1,"THS/L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+# the following is only for reference, since VMA has a separate procedure
+  distribution{"VMA"}=(,);
+  distribution{"VMA"}{"booster"}=((1,"285*C+108*U+24*R+12*M+92*S"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"CNS"}=(,);
+  distribution{"CNS"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"M15"}=(,);
+  distribution{"M15"}{"booster"}=((1,3*"L"+S),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"KTK"}=(,);
+  distribution{"KTK"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"C14"}=(,);
+  distribution{"C14"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"FRF"}=(,);
+  distribution{"FRF"}{"booster"}=((1,"L+20*CL+2*KTK/RL"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"DTK"}=(,);
+  distribution{"DTK"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"TPR"}=(,);
+  distribution{"TPR"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+# the following is only for reference, since MM2 has a separate procedure
+  distribution{"MM2"}=(,);
+  distribution{"MM2"}{"booster"}=((1,"12*C+6*U+2*R+M"),(10,"C"),(3,"U"),(1,"2*R+M"));
+# the following is only here to enable the set for drafting purposes, since CHAOS is a virtual booster
+  distribution{"CHAOS"}=(,);
+  distribution{"CHAOS"}{"booster"}=((15,"BE/L"));
+# the following is only here to enable the set for drafting purposes, since CUBE is a virtual booster
+  distribution{"CUBE"}=(,);
+  distribution{"CUBE"}{"booster"}=((15,"BE/L"));
+  distribution{"ORI"}=(,);
+  distribution{"ORI"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
+}
+
+#
+# ProduceCUBE_Booster() - Produce booster for cube drafting purposes.
+#
+def ProduceCUBE_Booster
+{
+  push(j);
+  j=left(cubecontents{con},15);
+  return(j);
+  cubecontents{con}=right(cubecontents{con},length(cubecontents{con})-15);
+  j=pop();
+}
+
+#
+# ProduceCHAOS_Booster() - Produce random booster for chaos limited purposes.
+#
+def ProduceCHAOS_Booster
+{
+  push(randproducts);
+  push(j);
+  
+  randproduct=(,);
+  for(j)(keys(products))
+  {
+    if(products{j}[1]==2.45 && has_entry(products{j}[2][0],set.data))
+      randproduct=randproduct+(j,);
+  }
+  j=randproduct[random(length(randproduct))];
+  j=(call("Produce",(products{j}[2]+(1,))))[0];
+  return(j);
+  j=pop();
+  randproduct=pop();
+}
+
+#
+# ProduceVMA_Booster() - Produce Vintage Masters booster.
+#
+def ProduceVMA_Booster
+{
+  push(p);
+  push(i);
+  p=RandomCardSet("VMA",((11,"C"),(3,"U"),(1,"2*R+M")));
+
+# falling back on the procedure given in distribution{"VMA"} involves
+# constructing and destructing a 40000-element list for every single pack,
+# which is wasteful
+  i=random(41133);
+
+  if(i<828)
+    p[0]=random(cards{"VMA"}{"S"});
+  else if(i<1188)
+    p[0]=random(cards{"VMA"}{"M"});
+  else if(i<3708)
+    p[0]=random(cards{"VMA"}{"R"});
+  else if(i<12348)
+    p[0]=random(cards{"VMA"}{"U"});
+  else
+# it's already a common, but replace it with a new one anyway
+# since the foil slot is supposed to allow duplicates
+    p[0]=random(cards{"VMA"}{"C"});
+
+  return(p);
+  i=pop();
+  p=pop();
+}
+
+#
+# ProduceMOD_Booster() - Produce Modern Masters booster.
+#
+def ProduceMOD_Booster
+{
+  push(p);
+  push(i);
+  p=RandomCardSet("MOD",((11,"C"),(3,"U"),(1,"2*R+M")));
+
+# falling back on the procedure given in distribution{"MOD"} involves
+# constructing and destructing a 1600-element list for every single pack,
+# which is wasteful
+  i=random(1693);
+
+  if(i<15)
+    p[0]=random(cards{"MOD"}{"M"});
+  else if(i<121)
+    p[0]=random(cards{"MOD"}{"R"});
+  else if(i<481)
+    p[0]=random(cards{"MOD"}{"U"});
+  else
+# it's already a common, but replace it with a new one anyway
+# since the foil slot is supposed to allow duplicates
+    p[0]=random(cards{"MOD"}{"C"});
+
+  return(p);
+  i=pop();
+  p=pop();
+}
+
+#
+# ProduceMM2_Booster() - Produce Modern Masters booster.
+#
+def ProduceMM2_Booster
+{
+  push(p);
+  push(i);
+  p=RandomCardSet("MM2",((11,"C"),(3,"U"),(1,"2*R+M")));
+
+# falling back on the procedure given in distribution{"MM2"} involves
+# constructing and destructing a 1800-element list for every single pack,
+# which is wasteful
+  i=random(1813);
+
+  if(i<15)
+    p[0]=random(cards{"MM2"}{"M"});
+  else if(i<121)
+    p[0]=random(cards{"MM2"}{"R"});
+  else if(i<601)
+    p[0]=random(cards{"MM2"}{"U"});
+  else
+# it's already a common, but replace it with a new one anyway
+# since the foil slot is supposed to allow duplicates
+    p[0]=random(cards{"MM2"}{"C"});
+
+  return(p);
+  i=pop();
+  p=pop();
+}
+
+#
+# ProduceBE_Booster() - Produce beta booster.
+#
+def ProduceBE_Booster
+{
+  push(p);
+  p=RandomCardSet("BE",((11,"C"),(3,"U"),(1,"R")));
+  i=0;
+  while(i < 11)
+  {
+    if(random(121) < 46)
+      p[i]=random(cards{"BE"}{"L"});
+    i=i+1;
+  }
+  while(i < 14)
+  {
+    if(random(121) < 26)
+      p[i]=random(cards{"BE"}{"L"});
+    i=i+1;
+  }
+  if(random(121) < 4)
+    p[i]=random(cards{"BE"}{"L"});
+  return(p);
+  p=pop();
+}
+
+#
+# ProduceBE_Starter() - Produce beta starter.
+#
+def ProduceBE_Starter
+{
+  push(p);
+  p=RandomCardSet("BE",((45,"C"),(13,"U"),(2,"R")));
+  i=0;
+  while(i < 45)
+  {
+    if(random(121) < 46)
+      p[i]=random(cards{"BE"}{"L"});
+    i=i+1;
+  }
+  while(i < 58)
+  {
+    if(random(121) < 26)
+      p[i]=random(cards{"BE"}{"L"});
+    i=i+1;
+  }
+  if(random(121) < 4)
+    p[58]=random(cards{"BE"}{"L"});
+  if(random(121) < 4)
+    p[59]=random(cards{"BE"}{"L"});
+  return(p);
+  p=pop();
+}
