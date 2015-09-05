@@ -1891,6 +1891,7 @@
 	<requires name="server" version="0.9.8.2" />
 	<include file="Server-Central.bat"/>
 	<include file="mtg-sample.conf"/>
+	<include file="scripts"/>
 	<include file="scripts/"/>
 	<include file="scripts/Momir.rules"/>
 	<include file="scripts/Mtg-central-server.include"/>
@@ -1923,5 +1924,60 @@
 	<include file="./scripts/meta-server.triggers"/>
 	<include file="./scripts/server.functions"/>
 	<include file="./scripts/server.triggers"/>
+  </module>
+  <module name="source" version="0.9.8.1">
+	<include file="./"/>
+	<include file="./ChangeLog"/>
+	<include file="./Makefile"/>
+	<include file="./TODO"/>
+	<include file="./configure"/>
+	<include file="./src/"/>
+	<include file="./src/SDL_rotozoom.c"/>
+	<include file="./src/carddata.cpp"/>
+	<include file="./src/client.cpp"/>
+	<include file="./src/compat.cpp"/>
+	<include file="./src/curses-driver.cpp"/>
+	<include file="./src/data.cpp"/>
+	<include file="./src/data_filedb.cpp"/>
+	<include file="./src/driver.cpp"/>
+	<include file="./src/game-draw.cpp"/>
+	<include file="./src/game.cpp"/>
+	<include file="./src/gccg.cpp"/>
+	<include file="./src/gccg_client.vcproj"/>
+	<include file="./src/gccg_client.vcxproj"/>
+	<include file="./src/gccg_server.vcproj"/>
+	<include file="./src/gccg_server.vcxproj"/>
+	<include file="./src/include/"/>
+	<include file="./src/include/SDL_rotozoom.h"/>
+	<include file="./src/include/carddata.h"/>
+	<include file="./src/include/compat.h"/>
+	<include file="./src/include/cow_vector.h"/>
+	<include file="./src/include/data.h"/>
+	<include file="./src/include/data_filedb.h"/>
+	<include file="./src/include/driver.h"/>
+	<include file="./src/include/error.h"/>
+	<include file="./src/include/game.h"/>
+	<include file="./src/include/localization.h"/>
+	<include file="./src/include/parser.h"/>
+	<include file="./src/include/parser_functions.h"/>
+	<include file="./src/include/security.h"/>
+	<include file="./src/include/tools.h"/>
+	<include file="./src/include/triggers.h"/>
+	<include file="./src/include/version.h"/>
+	<include file="./src/include/xml_parser.h"/>
+	<include file="./src/interpreter.cpp"/>
+	<include file="./src/localization.cpp"/>
+	<include file="./src/parse_stats.cpp"/>
+	<include file="./src/parser.cpp"/>
+	<include file="./src/parser_lib.cpp"/>
+	<include file="./src/parser_libcards.cpp"/>
+	<include file="./src/parser_libnet.cpp"/>
+	<include file="./src/parser_libsquirrel.cpp"/>
+	<include file="./src/sdl-driver.cpp"/>
+	<include file="./src/security.cpp"/>
+	<include file="./src/server.cpp"/>
+	<include file="./src/text-driver.cpp"/>
+	<include file="./src/tools.cpp"/>
+	<include file="./src/xml_parser.cpp"/>
   </module>
 </modules>
