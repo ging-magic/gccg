@@ -528,27 +528,30 @@ namespace Evaluator
 	/// fuzzy_images(s) - Return a list of image numbers, which
 	/// has almost the card name $s$.
 	Data fuzzy_images(const Data& args)
-	{
-	    VECTORIZE(Libcards::fuzzy_images);
-			
-	    if(!args.IsString())
-		return Null;
-	    string name=args.String();
-			
-	    list<int> crds=cards.Images(name,false);
-	    if(crds.size()==0)
-		crds=cards.Images(name,true);
-			
-	    Data ret;
+		{
+		    VECTORIZE(Libcards::fuzzy_images);
+				
+		    if(!args.IsString())
+	        return Null;
+		    
+	      string name=args.String();
+		
+		    list<int> crds=cards.Images(name,true);
+	      
+		    // if(crds.size()==0)
+	        // crds=cards.Images(name,true);
+				
+		    Data ret;
 
-	    ret.MakeList(crds.size());
-	    list<int>::iterator i;
-	    int j;
-	    for(j=0,i=crds.begin(); i!=crds.end(); i++,j++)
-		ret[j]=Data(*i);
-			
-	    return ret;
-	}
+		    ret.MakeList(crds.size());
+		    list<int>::iterator i;
+		    int j;
+	      
+		    for(j=0,i=crds.begin(); i!=crds.end(); i++,j++)
+	        ret[j]=Data(*i);
+	        
+		    return ret;
+		}
 
 	// Sorting criteria functions.
 

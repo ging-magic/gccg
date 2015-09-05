@@ -413,7 +413,6 @@ static bool FuzzyMatch(const string& s1,const string& s2)
 list<int> CardSet::Images(const string& s,bool fuzzymatch)
 {
     string name=s;
-	
     while(name.length() && IsSpace(name[0]))
 	name=name.substr(1,name.length()-1);
 
@@ -424,30 +423,25 @@ list<int> CardSet::Images(const string& s,bool fuzzymatch)
 	
     if(fuzzymatch)
     {
-	if(numbers[s].size())
-	    ret=numbers[s];
-	else
-	{
 	    for(int i=0; i<Cards(); i++)
-		if(FuzzyMatch(Name(i),s))
-		    ret.push_back(i);
+        if(FuzzyMatch(Name(i),s))
+          ret.push_back(i);
 
-	    if(ret.size())
-	    {
-		list<int> better;
-		for(list<int>::iterator i=ret.begin(); i!=ret.end(); i++)
-		    if(Fuzzify(Name(*i))==Fuzzify(s))
-			better.push_back(*i);
+	    // if(ret.size())
+	    // {
+        // list<int> better;
+        // for(list<int>::iterator i=ret.begin(); i!=ret.end(); i++)
+          // if(Fuzzify(Name(*i))==Fuzzify(s))
+            // better.push_back(*i);
 
-		if(better.size())
-		    return better;
+        // if(better.size())
+          // return better;
 
-		return ret;
-	    }
-	}
+        // return ret;
+	    // }
     }
     else
-	ret=numbers[s];
+      ret=numbers[s];
 
     // Try to strip set and attribute specifiers.
     if(ret.size()==0)
