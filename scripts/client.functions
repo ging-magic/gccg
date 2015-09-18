@@ -2401,10 +2401,22 @@ def CommandFind
    push(i);
    push(c);
    push(p);
-
+   push(j);
+   push(valid);
+   
    if(length(ARG)>=1)
    {
      i=fuzzy_images(join(ARG," "));
+     valid=0;
+     for(j)(i)
+     {
+       if(set_of(j)!="")
+         valid=1;
+     }
+     if(!valid)
+     {
+       i=fuzzy_images(substr(join(ARG," "),0,(length(join(ARG," "))-1)));
+     }
 
      if(i==(,))
      {
@@ -2435,6 +2447,8 @@ def CommandFind
        set_attr(card.book,"visible",1);
      }
    }
+   valid=pop();
+   j=pop();
    p=pop();
    c=pop();
    i=pop();
