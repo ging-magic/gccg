@@ -382,7 +382,7 @@ void Table::Main(const string& server,int port,string username)
 		    else
 			driver->Fullscreen(1);
 		}
-		else if(command.command=="shift key" && command.argument=="insert")
+		else if((command.command=="shift key" && command.argument=="insert") || (command.command=="control key" && command.argument=="v"))
 		{
 			char buf[1024] = {0};
 
