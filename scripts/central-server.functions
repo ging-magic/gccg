@@ -835,6 +835,15 @@ def SealedOn
   else
   {
     CheckSealedCharacter(ARG[0]);
+    
+    push(owned);
+    owned = CheckSealedCharacter("phantom");
+    if(!owned)
+    {
+      if(isfunction("SealedStartHook"))
+        SealedStartHook(User()+"-"+ARG[0],ARG[0],ARG[1],ARG[2]);
+    }
+    owned=pop();
     ReRegisterPlayer(User()+"-"+ARG[0],users{User()}[3][0]{"version"},12345,game.data{"game"},users{User()}[0],users{User()}[3][0]{"system"},users{User()}[3][0]{"serial"});
   }
 }
@@ -1857,7 +1866,6 @@ def BuyCard
         Reply("{red}Internal server error.");
     }
     else if(!AvailableForSale(s,c,1) || users{s}[2]{c}[1] < 1)
-    if(!AvailableForSale(s,c,1) || users{s}[2]{c}[1] < 1)
     {
       Reply("{red}Not available for sale anymore by "+s+".");
       remove_obsolete_prices(c,);

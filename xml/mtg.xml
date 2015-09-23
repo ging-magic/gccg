@@ -102,6 +102,8 @@
   <cardset source="tpr.xml"/>
   <cardset source="mm2.xml"/>
   <cardset source="ori.xml"/>
+  <cardset source="bfz.xml"/>
+  <cardset source="exp.xml"/>
 
   <image file="b.png" tag="{B}"/>
   <image file="g.png" tag="{G}"/>

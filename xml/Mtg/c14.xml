@@ -744,7 +744,7 @@ Daretti, Scrap Savant can be your commander.">
    <attr key="cmc" value="0" />
    <attr key="type" value="Artifact Land" />
    <attr key="permanent" value="1" />
-   <attr key="color" value="Artifact Land" />
+   <attr key="color" value="Land" />
    <attr key="coloridentity" value="0" />
    <attr key="artist" value="John Avon" />
   </card>
@@ -1569,7 +1569,7 @@ Whenever Grave Titan enters the battlefield or attacks, put two 2/2 black Zombie
    <attr key="cmc" value="0" />
    <attr key="type" value="Artifact Land" />
    <attr key="permanent" value="1" />
-   <attr key="color" value="Artifact Land" />
+   <attr key="color" value="Land" />
    <attr key="coloridentity" value="2" />
    <attr key="artist" value="Rob Alexander" />
   </card>

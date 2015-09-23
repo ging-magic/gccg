@@ -538,7 +538,7 @@ Equip {3}">
    <attr key="type" value="Artifact Creature" />
    <attr key="subtype" value="Homunculus" />
    <attr key="permanent" value="1" />
-   <attr key="color" value="Artifact White" />
+   <attr key="color" value="White" />
    <attr key="coloridentity" value="16" />
    <attr key="power" value="1" />
    <attr key="toughness" value="1" />
@@ -667,7 +667,7 @@ Equip {2}">
    <attr key="cmc" value="0" />
    <attr key="type" value="Artifact Land" />
    <attr key="permanent" value="1" />
-   <attr key="color" value="Artifact Land" />
+   <attr key="color" value="Land" />
    <attr key="coloridentity" value="0" />
    <attr key="artist" value="John Avon" />
   </card>
@@ -953,7 +953,7 @@ When you control seven or more Thrulls, sacrifice Endrek Sahr, Master Breeder.">
    <attr key="type" value="Artifact Creature" />
    <attr key="subtype" value="Human Knight" />
    <attr key="permanent" value="1" />
-   <attr key="color" value="Artifact Blue White" />
+   <attr key="color" value="Blue White" />
    <attr key="coloridentity" value="24" />
    <attr key="power" value="1" />
    <attr key="toughness" value="3" />
@@ -1013,7 +1013,7 @@ When Faerie Mechanist enters the battlefield, look at the top three cards of you
    <attr key="type" value="Artifact Creature" />
    <attr key="subtype" value="Faerie Artificer" />
    <attr key="permanent" value="1" />
-   <attr key="color" value="Artifact Blue" />
+   <attr key="color" value="Blue" />
    <attr key="coloridentity" value="8" />
    <attr key="power" value="2" />
    <attr key="toughness" value="2" />
@@ -1136,7 +1136,7 @@ Cycling {WU}">
    <attr key="type" value="Artifact Creature" />
    <attr key="subtype" value="Golem" />
    <attr key="permanent" value="1" />
-   <attr key="color" value="Artifact Blue White" />
+   <attr key="color" value="Blue White" />
    <attr key="coloridentity" value="24" />
    <attr key="power" value="3" />
    <attr key="toughness" value="4" />

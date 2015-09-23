@@ -5,11 +5,12 @@
 function{"add_text"}="add_text";
 function{"del_all_texts"}="del_all_texts";
 
-HELP{"chat"}{"startdraft"}[3]=HELP{"chat"}{"startdraft"}[3]+" Available cubes for MtG are Legacy and Holiday. Accepted syntaxes are '/startdraft legacy cube' and '/startdraft holiday cube'.";
+HELP{"chat"}{"startdraft"}[3]=HELP{"chat"}{"startdraft"}[3]+" Available cubes for MtG are Legacy and Holiday. Accepted syntaxes are '/startdraft n legacy cube' and '/startdraft n holiday cube'.";
 
 #these exist so the format filters don't get clogged with page after page of basic lands from early sets
-MIN_STANDARD_AGE=86;
+MIN_STANDARD_AGE=93;
 MIN_MODERN_AGE=42;
+MIN_CARD_NUMBER=1001;
 
 # Size of columns of the decklist in pixels.
 DECKBOX_SIZE=(20,225,120);
@@ -768,12 +769,15 @@ def EmblemSubmenu
   ("Garruk, Caller of Beasts","",'Send("Transfer",(1,("out.of.play",191),("play",0)))'),
   ("Garruk, Apex Predator","",'Send("Transfer",(1,("out.of.play",226),("play",0)))'),
   ("Jace, Telepath Unbound","",'Send("Transfer",(1,("out.of.play",255),("play",0)))'),
+  ("Jideon, Ally of Zendikar","",'Send("Transfer",(1,("out.of.play",270),("play",0)))'),
   ("Kiora, the Crashing Wave","",'Send("Transfer",(1,("out.of.play",200),("play",0)))'),
+  ("Kiora, Master of the Depths","",'Send("Transfer",(1,("out.of.play",271),("play",0)))'),
   ("Koth of the Hammer","",'Send("Transfer",(1,("out.of.play",168),("play",0)))'),
   ("Liliana, Defiant Necromancer","",'Send("Transfer",(1,("out.of.play",256),("play",0)))'),
   ("Liliana of the Dark Realms","",'Send("Transfer",(1,("out.of.play",175),("play",0)))'),
   ("Narset Transcendent","",'Send("Transfer",(1,("out.of.play",250),("play",0)))'),
   ("Ob Nixilis of the Black Oath","",'Send("Transfer",(1,("out.of.play",244),("play",0)))'),
+  ("Ob Nixilis Reignited","",'Send("Transfer",(1,("out.of.play",272),("play",0)))'),
   ("Sarkhan, the Dragonspeaker","",'Send("Transfer",(1,("out.of.play",231),("play",0)))'),
   ("Sorin, Lord of Innistrad","",'Send("Transfer",(1,("out.of.play",169),("play",0)))'),
   ("Sorin, Solemn Visitor","",'Send("Transfer",(1,("out.of.play",232),("play",0)))'),
@@ -890,6 +894,8 @@ def TokenSubmenuE
 {
   Submenu("Select Token",(
    ("{blue}{sz12}<back>","","TokenSubmenu()"),
+   ("Eldrazi 10/10 (C)","",'Send("Transfer",(1,("out.of.play",262),("play",0)))'),
+   ("Eldrazi Scion 1/1 (C)","",'Send("Transfer",(1,("out.of.play",263),("play",0)))'),
    ("Eldrazi Spawn 0/1 (C)","",'Send("Transfer",(1,("out.of.play",101),("play",0)))'),
    ("Elemental 1/0 (U)","",'Send("Transfer",(1,("out.of.play",195),("play",0)))'),
    ("Elemental 1/1 (R, haste)","",'Send("Transfer",(1,("out.of.play",29),("play",0)))'),
@@ -897,11 +903,13 @@ def TokenSubmenuE
    ("Elemental 2/2 (U, flying)","",'Send("Transfer",(1,("out.of.play",30),("play",0)))'),
    ("Elemental 3/1 (R, haste, enchantment)","",'Send("Transfer",(1,("out.of.play",206),("play",0)))'),
    ("Elemental 3/1 (R, haste)","",'Send("Transfer",(1,("out.of.play",31),("play",0)))'),
+   ("Elemental 3/1 (R, trample)","",'Send("Transfer",(1,("out.of.play",264),("play",0)))'),
    ("Elemental 3/3 (R)","",'Send("Transfer",(1,("out.of.play",32),("play",0)))'),
    ("Elemental 4/4 (G)","",'Send("Transfer",(1,("out.of.play",33),("play",0)))'),
    ("Elemental 4/4 (W, flying)","",'Send("Transfer",(1,("out.of.play",34),("play",0)))'),
    ("Elemental 5/3 (G)","",'Send("Transfer",(1,("out.of.play",234),("play",0)))'),
    ("Elemental 5/5 (BR)","",'Send("Transfer",(1,("out.of.play",35),("play",0)))'),
+   ("Elemental 5/5 (RG)","",'Send("Transfer",(1,("out.of.play",265),("play",0)))'),
    ("Elemental 5/5 (UR, flying)","",'Send("Transfer",(1,("out.of.play",36),("play",0)))'),
    ("Elemental 7/1 (R, trample, haste)","",'Send("Transfer",(1,("out.of.play",114),("play",0)))'),
    ("Elemental 7/7 (G, trample)","",'Send("Transfer",(1,("out.of.play",37),("play",0)))'),
@@ -991,7 +999,9 @@ def TokenSubmenuK
    ("Kithkin Soldier 1/1 (W)","",'Send("Transfer",(1,("out.of.play",60),("play",0)))'),   
    ("Knight 2/2 (W, first strike)","",'Send("Transfer",(1,("out.of.play",61),("play",0)))'),
    ("Knight 2/2 (W, vigilance)","",'Send("Transfer",(1,("out.of.play",179),("play",0)))'),
+   ("Knight Ally 2/2 (W)","",'Send("Transfer",(1,("out.of.play",266),("play",0)))'),
    ("Kor Soldier 1/1 (W)","",'Send("Transfer",(1,("out.of.play",119),("play",0)))'),
+   ("Kor Ally 1/1 (W)","",'Send("Transfer",(1,("out.of.play",267),("play",0)))'),
    ("Kraken 9/9 (U)","",'Send("Transfer",(1,("out.of.play",204),("play",0)))'),
   ));
 }
@@ -1023,6 +1033,7 @@ def TokenSubmenuO
 {
   Submenu("Select Token",(
    ("{blue}{sz12}<back>","","TokenSubmenu()"),
+   ("Octopus 8/8 (U)","",'Send("Transfer",(1,("out.of.play",268),("play",0)))'),
    ("Ogre 3/3 (R)","",'Send("Transfer",(1,("out.of.play",108),("play",0)))'),
    ("Ogre 4/4 (R)","",'Send("Transfer",(1,("out.of.play",221),("play",0)))'),
    ("Ooze */* (G)","",'Send("Transfer",(1,("out.of.play",66),("play",0)))'),
@@ -1038,6 +1049,7 @@ def TokenSubmenuP
    ("Pest 0/1 (A)","",'Send("Transfer",(1,("out.of.play",68),("play",0)))'),
    ("Pincher 2/2 (A)","",'Send("Transfer",(1,("out.of.play",69),("play",0)))'),
    ("Plant 0/1 (G)","",'Send("Transfer",(1,("out.of.play",109),("play",0)))'),
+   ("Plant 1/1 (G)","",'Send("Transfer",(1,("out.of.play",269),("play",0)))'),
   ));
 }
 

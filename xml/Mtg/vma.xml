@@ -209,7 +209,7 @@ Madness {2}{G}">
    <attr key="coloridentity" value="0" />
    <attr key="artist" value="Terese Nielsen" />
   </card>
-  <card name="Badlands" graphics="Badlands.jpg" text="#_({T}: Add {B} or {R} to your mana pool.)_#">
+  <card name="Badlands" graphics="Badlands.jpg" text="">
    <attr key="rarity" value="R" />
    <attr key="cn" value="291" />
    <attr key="cmc" value="0" />
@@ -315,7 +315,7 @@ Flashback—Tap three untapped white creatures you control.">
    <attr key="coloridentity" value="16" />
    <attr key="artist" value="Randy Gallegos" />
   </card>
-  <card name="Bayou" graphics="Bayou.jpg" text="#_({T}: Add {B} or {G} to your mana pool.)_#">
+  <card name="Bayou" graphics="Bayou.jpg" text="">
    <attr key="rarity" value="R" />
    <attr key="cn" value="293" />
    <attr key="cmc" value="0" />
@@ -2789,7 +2789,7 @@ If damage would be dealt to Phantom Nomad, prevent that damage. Remove a +1/+1 c
    <attr key="coloridentity" value="5" />
    <attr key="artist" value="Rebecca Guay" />
   </card>
-  <card name="Plateau" graphics="Plateau.jpg" text="#_({T}: Add {R} or {W} to your mana pool.)_#">
+  <card name="Plateau" graphics="Plateau.jpg" text="">
    <attr key="rarity" value="R" />
    <attr key="cn" value="308" />
    <attr key="cmc" value="0" />
@@ -3157,7 +3157,7 @@ At the beginning of your upkeep, if there are no Zombies on the battlefield, Sar
    <attr key="coloridentity" value="4" />
    <attr key="artist" value="Daren Bader" />
   </card>
-  <card name="Savannah" graphics="Savannah.jpg" text="#_({T}: Add {G} or {W} to your mana pool.)_#">
+  <card name="Savannah" graphics="Savannah.jpg" text="">
    <attr key="rarity" value="R" />
    <attr key="cn" value="311" />
    <attr key="cmc" value="0" />
@@ -3210,7 +3210,7 @@ Whenever Scourge of the Throne attacks for the first time each turn, if it's att
    <attr key="toughness" value="2" />
    <attr key="artist" value="Kev Walker" />
   </card>
-  <card name="Scrubland" graphics="Scrubland.jpg" text="#_({T}: Add {W} or {B} to your mana pool.)_#">
+  <card name="Scrubland" graphics="Scrubland.jpg" text="">
    <attr key="rarity" value="R" />
    <attr key="cn" value="313" />
    <attr key="cmc" value="0" />
@@ -3718,7 +3718,7 @@ If a player would gain life, that player gains no life instead.">
    <attr key="toughness" value="7" />
    <attr key="artist" value="Matt Cavotta" />
   </card>
-  <card name="Taiga" graphics="Taiga.jpg" text="#_({T}: Add {R} or {G} to your mana pool.)_#">
+  <card name="Taiga" graphics="Taiga.jpg" text="">
    <attr key="rarity" value="R" />
    <attr key="cn" value="317" />
    <attr key="cmc" value="0" />
@@ -3916,7 +3916,7 @@ Cycling {G}">
    <attr key="coloridentity" value="1" />
    <attr key="artist" value="Hideaki Takamura" />
   </card>
-  <card name="Tropical Island" graphics="TropicalIsland.jpg" text="#_({T}: Add {G} or {U} to your mana pool.)_#">
+  <card name="Tropical Island" graphics="TropicalIsland.jpg" text="">
    <attr key="rarity" value="R" />
    <attr key="cn" value="321" />
    <attr key="cmc" value="0" />
@@ -3927,7 +3927,7 @@ Cycling {G}">
    <attr key="coloridentity" value="9" />
    <attr key="artist" value="Franz Vohwinkel" />
   </card>
-  <card name="Tundra" graphics="Tundra.jpg" text="#_({T}: Add {W} or {U} to your mana pool.)_#">
+  <card name="Tundra" graphics="Tundra.jpg" text="">
    <attr key="rarity" value="R" />
    <attr key="cn" value="322" />
    <attr key="cmc" value="0" />
@@ -3960,7 +3960,7 @@ Cycling {G}">
    <attr key="coloridentity" value="4" />
    <attr key="artist" value="Daarken" />
   </card>
-  <card name="Underground Sea" graphics="UndergroundSea.jpg" text="#_({T}: Add {U} or {B} to your mana pool.)_#">
+  <card name="Underground Sea" graphics="UndergroundSea.jpg" text="">
    <attr key="rarity" value="R" />
    <attr key="cn" value="323" />
    <attr key="cmc" value="0" />
@@ -4020,7 +4020,7 @@ Draw a card.">
    <attr key="toughness" value="5" />
    <attr key="artist" value="Kev Walker" />
   </card>
-  <card name="Volcanic Island" graphics="VolcanicIsland.jpg" text="#_({T}: Add {U} or {R} to your mana pool.)_#">
+  <card name="Volcanic Island" graphics="VolcanicIsland.jpg" text="">
    <attr key="rarity" value="R" />
    <attr key="cn" value="324" />
    <attr key="cmc" value="0" />

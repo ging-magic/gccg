@@ -455,7 +455,7 @@
     <card name="Homunculus" graphics="Tokens/Homunculus01C.jpg" text="">
      <attr key="color" value="Blue" />
      <attr key="coloridentity" value="8" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Homunculus" />
      <attr key="power" value="0" />
      <attr key="toughness" value="1" />
@@ -491,7 +491,7 @@
     <card name="Kaldra" graphics="Tokens/Kaldra44C.jpg" text="">
      <attr key="color" value="Colorless" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Legendary Creature" />
+     <attr key="type" value="Token Legendary Creature" />
      <attr key="subtype" value="Avatar" />
      <attr key="power" value="4" />
      <attr key="toughness" value="4" />
@@ -554,7 +554,7 @@
     <card name="Myr" graphics="Tokens/Myr11C.jpg" text="">
      <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Myr" />
      <attr key="power" value="1" />
      <attr key="toughness" value="1" />
@@ -572,7 +572,7 @@
     <card name="Pentavite" graphics="Tokens/Pentavite11C.jpg" text="Flying">
      <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Pentavite" />
      <attr key="power" value="1" />
      <attr key="toughness" value="1" />
@@ -590,7 +590,7 @@
     <card name="Pincher" graphics="Tokens/Pincher22C.jpg" text="">
      <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Pincher" />
      <attr key="power" value="2" />
      <attr key="toughness" value="2" />
@@ -743,7 +743,7 @@
     <card name="Thopter" graphics="Tokens/Thopter11U.jpg" text="Flying">
      <attr key="color" value="Blue" />
      <attr key="coloridentity" value="8" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Thopter" />
      <attr key="power" value="1" />
      <attr key="toughness" value="1" />
@@ -770,7 +770,7 @@
     <card name="Twin" graphics="Tokens/Twin34C.jpg" text="">
      <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Twin" />
      <attr key="power" value="3" />
      <attr key="toughness" value="4" />
@@ -806,7 +806,7 @@
     <card name="Wasp" graphics="Tokens/Wasp11C.jpg" text="Flying">
      <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Wasp" />
      <attr key="power" value="2" />
      <attr key="toughness" value="2" />
@@ -869,7 +869,7 @@
     <card name="Construct" graphics="Tokens/Construct612C.jpg" text="Trample">
      <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="1" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Construct" />
      <attr key="power" value="6" />
      <attr key="toughness" value="12" />
@@ -905,7 +905,7 @@
     <card name="Golem" graphics="Tokens/Golem33C.jpg" text="">
      <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Golem" />
      <attr key="power" value="3" />
      <attr key="toughness" value="3" />
@@ -914,7 +914,7 @@
     <card name="Golem" graphics="Tokens/Golem99C.jpg" text="">
      <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Golem" />
      <attr key="power" value="9" />
      <attr key="toughness" value="9" />
@@ -968,7 +968,7 @@
     <card name="Thopter" graphics="Tokens/Thopter11C.jpg" text="Flying">
      <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Thopter" />
      <attr key="power" value="1" />
      <attr key="toughness" value="1" />
@@ -1004,7 +1004,7 @@
     <card name="Gargoyle" graphics="Tokens/Gargoyle34C.jpg" text="Flying">
      <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Gargoyle" />
      <attr key="power" value="3" />
      <attr key="toughness" value="4" />
@@ -1076,7 +1076,7 @@
     <card name="Wurm" graphics="Tokens/Wurm33Cd.jpg" text="Deathtouch">
      <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Wurm" />
      <attr key="power" value="3" />
      <attr key="toughness" value="3" />
@@ -1085,7 +1085,7 @@
     <card name="Wurm" graphics="Tokens/Wurm33Cl.jpg" text="Lifelink">
      <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Wurm" />
      <attr key="power" value="3" />
      <attr key="toughness" value="3" />
@@ -1918,7 +1918,7 @@ Whenever a card is put into your graveyard from anywhere, you may return it to y
     <card name="Hornet" graphics="Tokens/Hornet11A.jpg" text="Flying, haste">
      <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Artifact Creature" />
+     <attr key="type" value="Token Artifact Creature" />
      <attr key="subtype" value="Insect" />
      <attr key="power" value="1" />
      <attr key="toughness" value="1" />
@@ -2458,9 +2458,9 @@ At the beginning of your end step, discard your hand.">
     <card name="Stoneforged Blade" graphics="Tokens/StoneforgedBladeA.jpg" text="Indestructible
 Equipped creature gets +5/+5 and has double strike.
 Equip {0}">
-     <attr key="color" value="Token Artifact" />
+     <attr key="color" value="Artifact" />
      <attr key="coloridentity" value="0" />
-     <attr key="type" value="Artifact" />
+     <attr key="type" value="Token Artifact" />
      <attr key="subtype" value="Equipment" />
      <attr key="permanent" value="1" />
     </card>
@@ -2694,27 +2694,86 @@ Whenever a land enters the battlefield under your control, if you control seven 
      <attr key="fliptoughness" value="2" />
     <attr key="flipid" value="23579" />
     </card>
-    <card name="2" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
+    <card name="Eldrazi" graphics="Tokens/Eldrazi1010C.jpg" text="">
+     <attr key="color" value="Colorless" />
+     <attr key="coloridentity" value="0" />
+     <attr key="type" value="Token Creature" />
+     <attr key="subtype" value="Eldrazi" />
+     <attr key="power" value="10" />
+     <attr key="toughness" value="10" />
+     <attr key="permanent" value="1" />
     </card>
-    <card name="3" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
+    <card name="Eldrazi Scion" graphics="Tokens/EldraziScion11C.jpg" text="Sacrifice this creature: Add {1} to your mana pool.">
+     <attr key="color" value="Colorless" />
+     <attr key="coloridentity" value="0" />
+     <attr key="type" value="Token Creature" />
+     <attr key="subtype" value="Eldrazi Scion" />
+     <attr key="power" value="1" />
+     <attr key="toughness" value="1" />
+     <attr key="permanent" value="1" />
     </card>
-    <card name="4" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
+    <card name="Elemental" graphics="Tokens/Elemental31Rt.jpg" text="Trample.">
+     <attr key="color" value="Red" />
+     <attr key="coloridentity" value="2" />
+     <attr key="type" value="Token Creature" />
+     <attr key="subtype" value="Elemental" />
+     <attr key="power" value="3" />
+     <attr key="toughness" value="1" />
+     <attr key="permanent" value="1" />
     </card>
-    <card name="5" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
+    <card name="Elemental" graphics="Tokens/Elemental55GR.jpg" text="">
+     <attr key="color" value="Green Red" />
+     <attr key="coloridentity" value="3" />
+     <attr key="type" value="Token Creature" />
+     <attr key="subtype" value="Elemental" />
+     <attr key="power" value="5" />
+     <attr key="toughness" value="5" />
+     <attr key="permanent" value="1" />
     </card>
-    <card name="6" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
+    <card name="Knight Ally" graphics="Tokens/KnightAlly22W.jpg" text="">
+     <attr key="color" value="White" />
+     <attr key="coloridentity" value="16" />
+     <attr key="type" value="Token Creature" />
+     <attr key="subtype" value="Knight Ally" />
+     <attr key="power" value="2" />
+     <attr key="toughness" value="2" />
+     <attr key="permanent" value="1" />
     </card>
-    <card name="7" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
+    <card name="Kor Ally" graphics="Tokens/KorAlly11W.jpg" text="">
+     <attr key="color" value="White" />
+     <attr key="coloridentity" value="16" />
+     <attr key="type" value="Token Creature" />
+     <attr key="subtype" value="Kor Ally" />
+     <attr key="power" value="1" />
+     <attr key="toughness" value="1" />
+     <attr key="permanent" value="1" />
     </card>
-    <card name="8" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
+    <card name="Octopus" graphics="Tokens/Octopus88U.jpg" text="">
+     <attr key="color" value="White" />
+     <attr key="coloridentity" value="8" />
+     <attr key="type" value="Token Creature" />
+     <attr key="subtype" value="Octopus" />
+     <attr key="power" value="8" />
+     <attr key="toughness" value="8" />
+     <attr key="permanent" value="1" />
     </card>
-    <card name="9" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
+    <card name="Plant" graphics="Tokens/Plant11G.jpg" text="">
+     <attr key="color" value="Green" />
+     <attr key="coloridentity" value="1" />
+     <attr key="type" value="Token Creature" />
+     <attr key="subtype" value="Plant" />
+     <attr key="power" value="1" />
+     <attr key="toughness" value="1" />
+     <attr key="permanent" value="1" />
     </card>
-    <card name="70" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
+    <card name="Emblem: Gideon, Ally of Zendikar" graphics="Emblems/Emblem_GideonAllyOfZendikar.jpg" text="Creatures you control get +1/+1.">
+     <attr key="permanent" value="2" />
     </card>
-    <card name="1" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
+    <card name="Emblem: Kiora, Master of the Depths" graphics="Emblems/Emblem_KioraMasterOfTheDepths.jpg" text="Whenever a creature enters the battlefield under your control, you may have it fight target creature.">
+     <attr key="permanent" value="2" />
     </card>
-    <card name="2" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
+    <card name="Emblem: Ob Nixilis Reignited" graphics="Emblems/Emblem_ObNixilisReignited.jpg" text="Whenever a player draws a card, you lose 2 life.">
+     <attr key="permanent" value="2" />
     </card>
     <card name="3" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
     </card>
