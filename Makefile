@@ -104,7 +104,7 @@ endif
 ifeq "$(BUILDER)" "-"
 BUILDER :=
 else
-BUILDER := $(shell echo " build by `whoami`@`hostname`")
+BUILDER := $(shell echo " build by ging")
 endif
 BUILDID := $(shell \
 	(	echo '$(DEBUG)'; cat Makefile; \
