@@ -8,12 +8,9 @@
   <source url="http://wtactics.org/files/gccg/modules/"/>
   <source url="http://gccg.bornano.fr/gccg/"/>
   <source url="http://lotrtcgdb.com/files/gccg/"/>
-  <module name="client" version="0.9.8.5">
-	<include file="."/>
+  <module name="client" version="0.9.8.6">
 	<include file="./"/>
-	<include file="./graphics"/>
 	<include file="./graphics/"/>
-	<include file="./graphics/avatar"/>
 	<include file="./graphics/avatar/"/>
 	<include file="./graphics/avatar/aa.png"/>
 	<include file="./graphics/avatar/ac.png"/>
@@ -536,14 +533,11 @@
 	<include file="./graphics/unknown_card.png"/>
 	<include file="./graphics/white_marker.png"/>
 	<include file="./graphics/yellow_marker.png"/>
-	<include file="./lib"/>
 	<include file="./lib/"/>
 	<include file="./lib/dictionary.client"/>
-	<include file="./scripts"/>
 	<include file="./scripts/"/>
 	<include file="./scripts/client.functions"/>
 	<include file="./scripts/client.triggers"/>
-	<include file="./sounds"/>
 	<include file="./sounds/"/>
 	<include file="./sounds/card_drop.ogg"/>
 	<include file="./sounds/card_pickup.ogg"/>
@@ -615,7 +609,7 @@
 	<include file="ccg_client"/>
 	<include file="ccg_server"/>
   </module>
-  <module name="mtg" version="1.3.18.12">
+  <module name="mtg" version="1.3.18.13">
 	<include file="Mtg"/>
 	<include file="Mtg.bat"/>
 	<include file="decks/"/>
@@ -1747,12 +1741,11 @@
 	<include file="xml/Mtg/zdk.xml"/>
 	<include file="xml/mtg.xml"/>
   </module>
-  <module name="mtg-server" version="1.3.18.7">
-	<requires name="mtg" version="1.3.18.11" />
-	<requires name="server" version="0.9.8.3" />
+  <module name="mtg-server" version="1.3.18.8">
+	<requires name="mtg" version="1.3.18.13" />
+	<requires name="server" version="0.9.8.5" />
 	<include file="Server-Central.bat"/>
 	<include file="mtg-sample.conf"/>
-	<include file="scripts"/>
 	<include file="scripts/"/>
 	<include file="scripts/Momir.rules"/>
 	<include file="scripts/Mtg-central-server.include"/>
@@ -1760,8 +1753,7 @@
 	<include file="scripts/Mtg-meta-server.include"/>
 	<include file="scripts/Mtg-server.include"/>
   </module>
-  <module name="server" version="0.9.8.3">
-	<include file="."/>
+  <module name="server" version="0.9.8.5">
 	<include file="./"/>
 	<include file="./Server"/>
 	<include file="./ServerKill"/>
@@ -1769,13 +1761,11 @@
 	<include file="./ServerStatus"/>
 	<include file="./TableKill"/>
 	<include file="./log/"/>
-	<include file="./perl"/>
 	<include file="./perl/"/>
 	<include file="./perl/game_info.pl"/>
 	<include file="./perl/gccg.pm"/>
 	<include file="./perl/server.pm"/>
 	<include file="./save/"/>
-	<include file="./scripts"/>
 	<include file="./scripts/"/>
 	<include file="./scripts/central-server.functions"/>
 	<include file="./scripts/central-server.triggers"/>

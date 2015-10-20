@@ -17,7 +17,8 @@
 
 # Draft tables tend to die if they don't reset every game.
 
-persistent=0;
+if(find("Draft Table",server_description) != NULL)
+  persistent=0;
 
 function{"WriteText"}="WriteText";
 

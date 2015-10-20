@@ -2141,7 +2141,11 @@ def Refresh
   push(d);
   d=get_card_data(User(),ARG);
   if(d!=NULL)
+  {
     Send(con,("SetCardbook",d));
+    if(ARG==cards())
+      Reply("Collection refreshed.");
+  }
   d=pop();
 }
 

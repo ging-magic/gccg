@@ -22,6 +22,6 @@ def PlayCommandMulligan
         len=pop();
 }
 
-HELP{"play"}{"mulligan"}=("","Paris mulligan",NULL,
-"Perform a Paris mulligan: shuffle the current hand to the deck, then draw one fewer card.");
+HELP{"play"}{"mulligan"}=("","Paris or Vancouver mulligan",NULL,
+"Perform a Paris or Vancouver mulligan: shuffle the current hand to the deck, then draw one fewer card. Remember that under the Vancouver mulligan rule, which is the current one, if you took a mulligan and have less than seven cards in your starting hand, you get to scry 1. Scry only after you've chosen to keep.");
 

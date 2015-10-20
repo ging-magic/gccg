@@ -641,14 +641,14 @@ def msgbox_isvisible
   push(i);
   push(found);
   found=0;
-  current_height=text_height(0,12,msgboxhistory[length(msgboxhistory)-msgbox_scroll(msg.box,0)-1])-1;
+  current_height=text_height(0,12,msgboxhistory[max(length(msgboxhistory)-msgbox_scroll(msg.box,0)-1,0)])-1;
   i=1;
   while(current_height<ObjH(msg.box) && found==0 && length(msgboxhistory)-msgbox_scroll(msg.box,0)-i>0)
   {
     if(msgboxhistory.pos==length(msgboxhistory)-msgbox_scroll(msg.box,0)-i)
       found=1;
     i=i+1;
-    current_height=current_height+text_height(0,12,msgboxhistory[length(msgboxhistory)-msgbox_scroll(msg.box,0)-i])-1;
+    current_height=current_height+text_height(0,12,msgboxhistory[max(length(msgboxhistory)-msgbox_scroll(msg.box,0)-i,0)])-1;
   }
   return(found);
   found=pop();
@@ -664,12 +664,12 @@ def msgbox_toptobottom
 {
   push(current_height);
   push(i);
-  current_height=text_height(0,12,msgboxhistory[msgboxhistory.pos]);
+  current_height=text_height(0,12,msgboxhistory[max(msgboxhistory.pos,0)]);
   i=0;
   while(current_height<ObjH(msg.box))
   {
     i=i+1;
-    current_height=current_height+text_height(0,12,msgboxhistory[msgboxhistory.pos+i])-1;
+    current_height=current_height+text_height(0,12,msgboxhistory[max(msgboxhistory.pos+i,0)])-1;
   }
   return(i-1);
   i=pop();
@@ -1265,7 +1265,7 @@ def SetCardbook
 }
 
 #
-# MergeDeck(deck name) - Add content of the another deck to the current deck.
+# MergeDeck(deck name) - Add content of another deck to the current deck.
 #
 def MergeDeck
 {
@@ -6687,7 +6687,7 @@ def KeyShiftKeyUp
       msgboxhistory.pos=0;
     msgbox.lastcutoff=msgbox_cutoff(msg.box);
   }
-  input=msgboxhistory[msgboxhistory.pos];
+  input=msgboxhistory[max(msgboxhistory.pos,0)];
   msgboxhighlight.pos=msgboxhistory.pos;
   msgbox_linebg(msg.box,msgboxhighlight.pos,msgboxhighlight.color,1);
   if(!msgbox_isvisible())
@@ -6714,7 +6714,7 @@ def KeyShiftKeyDown
       msgboxhistory.pos=0;
     if(msgboxhistory.pos<length(msgboxhistory))
     {
-      input=msgboxhistory[msgboxhistory.pos];
+      input=msgboxhistory[max(msgboxhistory.pos,0)];
       msgboxhighlight.pos=msgboxhistory.pos;
       msgbox_linebg(msg.box,msgboxhighlight.pos,msgboxhighlight.color,1);
       if(!msgbox_isvisible())
@@ -6744,7 +6744,7 @@ def KeyShiftControlKeyUp
   msgboxhistory=msgbox_search(msg.box,"");
   
   msgboxhistory.pos=0;
-  input=msgboxhistory[msgboxhistory.pos];
+  input=msgboxhistory[max(msgboxhistory.pos,0)];
   msgboxhighlight.pos=msgboxhistory.pos;
   msgbox_linebg(msg.box,msgboxhighlight.pos,msgboxhighlight.color,1);
   if(!msgbox_isvisible())
@@ -8955,7 +8955,7 @@ def MouseControlLeftClick
     if(msgboxhighlight.pos>-1)
     {
       msgboxhistory.pos=msgboxhighlight.pos;
-      input=msgboxhistory[msgboxhistory.pos];
+      input=msgboxhistory[max(msgboxhistory.pos,0)];
       msgbox_linebg(msg.box,msgboxhighlight.pos,msgboxhighlight.cpcolor,1);
       message(input.box,input);
       if(mode=="play")
@@ -9039,6 +9039,48 @@ def MouseLeftDragEnd
   {
     dragging=0;
     set_attr(object.number,"highlight",dragging.highlight);
+    if(object.type=="card")
+    {
+      push(i);
+      push(j);
+      push(pile);
+      push(ratio);
+      push(xy);
+      push(objxy);
+      push(xdist);
+      push(ydist);
+      push(recdist);
+      xy=center_of(object.number,1);
+      pile=(0,0);
+      for(i)(intersect(object.number))
+      {
+        for(j)(deck.objects)
+        {
+          if(count(i,values(j)) && get_attr(i,"visible"))
+          {
+            ratio=toreal(ObjW(object.number)+ObjW(i))/(ObjH(object.number)+ObjH(i));
+            ratio=ratio*ratio;
+            objxy=center_of(i,1);
+            xdist=objxy[0]-xy[0];
+            ydist=objxy[1]-xy[1];
+            recdist=xdist*xdist+ratio*ydist*ydist;
+            if(!pile[0] || recdist<pile[1])
+              pile=(i,recdist);
+          }
+        }
+      }
+      if(pile[0])
+        TryTransferTo("deck.top",pile[0]);
+      recdist=pop();
+      ydist=pop();
+      xdist=pop();
+      objxy=pop();
+      xy=pop();
+      ratio=pop();
+      pile=pop();
+      j=pop();
+      i=pop();
+    }
   }
 }
 
@@ -9162,12 +9204,12 @@ def MouseMove
     push(current_height);
     push(i);
     msgboxhistory=msgbox_search(msg.box,"");
-    current_height=text_height(0,12,msgboxhistory[length(msgboxhistory)-msgbox_scroll(msg.box,0)-1])-1;
+    current_height=text_height(0,12,msgboxhistory[max(length(msgboxhistory)-msgbox_scroll(msg.box,0)-1,0)])-1;
     i=1;
     while(current_height<ObjH(msg.box)+5-mouse.y)
     {
       i=i+1;
-      current_height=current_height+text_height(0,12,msgboxhistory[length(msgboxhistory)-msgbox_scroll(msg.box,0)-i])-1;
+      current_height=current_height+text_height(0,12,msgboxhistory[max(length(msgboxhistory)-msgbox_scroll(msg.box,0)-i,0)])-1;
     }
     if(msgboxhighlight.pos>-1)
     {

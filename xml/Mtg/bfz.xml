@@ -452,8 +452,7 @@ Put two 1/1 colorless Eldrazi Scion creature tokens onto the battlefield. They h
    <attr key="coloridentity" value="1" />
    <attr key="artist" value="Winona Nelson" />
   </card>
-  <card name="Canopy Vista" graphics="CanopyVista.jpg" text="#_({T}: Add {G} or {W} to your mana pool.)_#
-Canopy Vista enters the battlefield tapped unless you control two or more basic lands.">
+  <card name="Canopy Vista" graphics="CanopyVista.jpg" text="Canopy Vista enters the battlefield tapped unless you control two or more basic lands.">
    <attr key="rarity" value="R" />
    <attr key="cn" value="234" />
    <attr key="cmc" value="0" />
@@ -508,8 +507,7 @@ Whenever another creature you control dies, scry 1.">
    <attr key="toughness" value="2" />
    <attr key="artist" value="Johannes Voss" />
   </card>
-  <card name="Cinder Glade" graphics="CinderGlade.jpg" text="#_({T}: Add {R} or {G} to your mana pool.)_#
-Cinder Glade enters the battlefield tapped unless you control two or more basic lands.">
+  <card name="Cinder Glade" graphics="CinderGlade.jpg" text="Cinder Glade enters the battlefield tapped unless you control two or more basic lands.">
    <attr key="rarity" value="R" />
    <attr key="cn" value="235" />
    <attr key="cmc" value="0" />
@@ -2542,8 +2540,7 @@ Awaken 4—{5}{W}{W}{W}">
    <attr key="coloridentity" value="1" />
    <attr key="artist" value="Aaron Miller" />
   </card>
-  <card name="Prairie Stream" graphics="PrairieStream.jpg" text="#_({T}: Add {W} or {U} to your mana pool.)_#
-Prairie Stream enters the battlefield tapped unless you control two or more basic lands.">
+  <card name="Prairie Stream" graphics="PrairieStream.jpg" text="Prairie Stream enters the battlefield tapped unless you control two or more basic lands.">
    <attr key="rarity" value="R" />
    <attr key="cn" value="241" />
    <attr key="cmc" value="0" />
@@ -3123,8 +3120,7 @@ Ingest
    <attr key="coloridentity" value="16" />
    <attr key="artist" value="Jakub Kasper" />
   </card>
-  <card name="Smoldering Marsh" graphics="SmolderingMarsh.jpg" text="#_({T}: Add {B} or {R} to your mana pool.)_#
-Smoldering Marsh enters the battlefield tapped unless you control two or more basic lands.">
+  <card name="Smoldering Marsh" graphics="SmolderingMarsh.jpg" text="Smoldering Marsh enters the battlefield tapped unless you control two or more basic lands.">
    <attr key="rarity" value="R" />
    <attr key="cn" value="247" />
    <attr key="cmc" value="0" />
@@ -3226,8 +3222,7 @@ When Stasis Snare enters the battlefield, exile target creature an opponent cont
    <attr key="coloridentity" value="2" />
    <attr key="artist" value="Chris Rallis" />
   </card>
-  <card name="Sunken Hollow" graphics="SunkenHollow.jpg" text="#_({T}: Add {U} or {B} to your mana pool.)_#
-Sunken Hollow enters the battlefield tapped unless you control two or more basic lands.">
+  <card name="Sunken Hollow" graphics="SunkenHollow.jpg" text="Sunken Hollow enters the battlefield tapped unless you control two or more basic lands.">
    <attr key="rarity" value="R" />
    <attr key="cn" value="249" />
    <attr key="cmc" value="0" />

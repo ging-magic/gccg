@@ -12,15 +12,15 @@ if(msg.box != NULL)
 
 MTG_KEYWORDS = (,);
 MTG_KEYWORDS{''}="{green}List of available keywords\n
-{yellow}A: {white}Absorb, Affinity, Amplify, Annihilator, Attach, Aura Swap.\n
+{yellow}A: {white}Absorb, Affinity, Amplify, Annihilator, Attach, Aura Swap, Awaken.\n
 {yellow}B: {white}Banding, Bands with Other, Batallion, Battle Cry, Bestow, Bloodrush, Bloodthirst, Bolster, Bushido, Buyback.\n
 {yellow}C: {white}Cascade, Champion, Changeling, Channel, Chroma, Cipher, Clash, Conspire, Constellation, Convoke, Counter, Cumulative Upkeep, Cycling.\n
-{yellow}D: {white}Dash, Deathtouch, Defender, Delve, Detain, Dethrone, Devotion, Devour, Domain, Double Strike, Dredge.\n
+{yellow}D: {white}Dash, Deathtouch, Defender, Delve, Detain, Dethrone, Devoid, Devotion, Devour, Domain, Double Strike, Dredge.\n
 {yellow}E: {white}Echo, Emblem, Enchant, Entwine, Epic, Equip, Evoke, Evolve, Exalted, Exploit, Extort.\n
 {yellow}F: {white}Fading, Fateful Hour, Fateseal, Fear, Ferocious, Fight, First Strike, Flanking, Flash, Flashback, Flying, Forecast, Formidable, Fortify, Fuse, Frenzy.\n
 {yellow}G: {white}Graft, Grandeur, Gravestorm.\n
 {yellow}H: {white}Haste, Haunt, Hellbent, Heroic, Hexproof, Hidden Agenda, Hideaway, Horsemanship.\n
-{yellow}I: {white}Imprint, Indestructible, Infect, Inspired, Intimidate.\n
+{yellow}I: {white}Imprint, Indestructible, Infect, Ingest, Inspired, Intimidate.\n
 {yellow}J: {white}Join Forces.\n
 {yellow}K: {white}Kicker, Kinship.\n
 {yellow}L: {white}Landfall, Landwalk, Level Up, Lieutenant, Lifelink, Living Weapon.\n
@@ -28,7 +28,7 @@ MTG_KEYWORDS{''}="{green}List of available keywords\n
 {yellow}N: {white}Ninjutsu.\n
 {yellow}O: {white}Offering, Outlast, Overload.\n
 {yellow}P: {white}Parley, Persist, Phasing, Poisonous, Populate, Proliferate, Protection, Provoke, Prowess, Prowl.\n
-{yellow}R: {white}Radiance, Raid, Rampage, Reach, Rebound, Recover, Regenerate, Reinforce, Renown, Replicate, Retrace, Ripple.\n
+{yellow}R: {white}Radiance, Raid, Rally, Rampage, Reach, Rebound, Recover, Regenerate, Reinforce, Renown, Replicate, Retrace, Ripple.\n
 {yellow}S: {white}Sacrifice, Scavenge, Scry, Shadow, Shroud, Soulbond, Soulshift, Spell Mastery, Splice, Split Second, Storm, Strive, Sunburst, Suspend, Sweep.\n
 {yellow}T: {white}Tap, Threshold, Trample, Transfigure, Transmute, Tribute, Totem Armor, Typecycling.\n
 {yellow}U: {white}Undying, Unearth, Unleash, Untap.\n
@@ -42,6 +42,7 @@ MTG_KEYWORDS{'amplify'}="{yellow}Amplify{white} is a static ability. \"Amplify N
 MTG_KEYWORDS{'annihilator'}="{yellow}Annihilator{white} is a triggered ability. \"Annihilator N\" means \"Whenever this creature attacks, defending player sacrifices N permanents.\" ";
 MTG_KEYWORDS{'attach'}="{yellow}Attach{white} means: \"To move an Aura, Equipment, or Fortification onto another object.\"";
 MTG_KEYWORDS{'aura swap'}="{yellow}Aura swap{white} is an activated ability of some Aura cards. \"Aura swap [cost]\" means \"[Cost]: You may exchange this permanent with an Aura card in your hand.\"";
+MTG_KEYWORDS{'awaken'}="{yellow}Awaken{white} is a keyword ability that provides an alternative cost. If a spell is cast for its awaken cost, in addition to its other effects, it animates a land you control as a 0/0 Elemental creature with N +1/+1 counters on it.";
 MTG_KEYWORDS{'banding'}="{yellow}Banding{white} is a static ability. Any creatures with banding, and up to one without, can attack in a band. Bands are blocked as a group. If any creatures with banding you control are blocking or being blocked by a creature, you divide that creature's combat damage, not its controller, among any of the creatures it's being blocked by or is blocking.";
 MTG_KEYWORDS{'bands with other'}="{yellow}Bands with Other{white} is a static ability. \"Bands with other [quality]\" means \"Any [quality] creatures can attack in a band as long as at least one has \"bands with other [quality] creatures.\" Bands are blocked as a group. If at least two [quality] creatures you control, one of which has \"bands with other [quality] creatures\", are blocking or being blocked by the same creature, you divide that creature's combat damage, not its controller, among any of the creatures it's being blocked by or is blocking.";
 MTG_KEYWORDS{'batallion'}="{yellow}Batallion{white} is an ability word related to attacking with a creature alongside at least two others. The term itself has no rules meaning.";
@@ -73,6 +74,7 @@ MTG_KEYWORDS{'defender'}="{yellow}Defender{white} is a static ability. A creatur
 MTG_KEYWORDS{'delve'}="{yellow}Delve{white} is a static ability which means \"For each generic mana in this spell's total cost, you may exile a card from your graveyard rather than pay that mana.\"";
 MTG_KEYWORDS{'detain'}="When you \"{yellow}detain{white}\" a permanent, it means that until the start of your next turn, that permanent can't attack or block, and its activated abilities can't be activated.";
 MTG_KEYWORDS{'dethrone'}="{yellow}Dethrone{white} is a triggered ability. \"Dethrone\" means \"Whenever this creature attacks the player with the most life or tied for most life, put a +1/+1 counter on this creature.\"";
+MTG_KEYWORDS{'devoid'}="{yellow}Devoid{white} is a characteristic-defining keyword ability which states that a card is colorless, regardless of the colors in that card's mana cost.";
 MTG_KEYWORDS{'devotion'}="If an effect asks for your {yellow}devotion{white} to a color, look in the mana costs of permanents you control and count the number of mana symbols of that color. The total result is your devotion. Hybrid ({WU}) and Phyrexian ({WP}) mana symbols with the correct color still count. If an effect looks for devotion to two colors at once, hybrid mana symbols only count once, even if they have both colors correct.";
 MTG_KEYWORDS{'devour'}="{yellow}Devour{white} is a static ability. \"Devour N\" means \"As this object enters the battlefield, you may sacrifice any number of creatures. This permanent enters the battlefield with N +1/+1 counters on it for each creature sacrificed this way.\"";
 MTG_KEYWORDS{'domain'}="{yellow}Domain{white} is an ability word related to counting basic land types. The term itself has no rules meaning.";
@@ -119,6 +121,7 @@ MTG_KEYWORDS{'horsemanship'}="{yellow}Horsemanship{white} is a static ability. A
 MTG_KEYWORDS{'imprint'}="{yellow}Imprint{white} is an ability word that deals with exiling one or more cards and looking at their characteristics. The term itself has no rules meaning.";
 MTG_KEYWORDS{'indestructible'}="{yellow}Indestructible{white} is a static ability. A permanent with indestructible can't be destroyed, and if it's a creature, it doesn't get checked for lethal damage. Other effects (such as sacrificing it or reducing its toughness to 0) can still cause it to go to the graveyard.";
 MTG_KEYWORDS{'infect'}="{yellow}Infect{white} is a static ability. Damage dealt to a player by a source with infect doesn't cause that player to lose life. Rather, it causes the player to get that many poison counters. Damage dealt to a creature by a source with infect isn't marked on that creature. Rather, it causes that many -1/-1 counters to be put on that creature.";
+MTG_KEYWORDS{'ingest'}="{yellow}Ingest{white} is a keyword ability that triggers when a creature with ingest deals combat damage to a player. That player exiles the top card of his or her library.";
 MTG_KEYWORDS{'inspired'}="{yellow}Inspired{white} is an ability word that deals with permanents beoming untapped. The term itself has no rules meaning.";
 MTG_KEYWORDS{'intimidate'}="{yellow}Intimidate{white} is a static ability. A creature with intimidate can't be blocked except by artifact creatures and/or creatures that share a color with it.";
 MTG_KEYWORDS{'join forces'}="{yellow}Join forces{white} is an ability word which denotes an opportunity for multiple players to spend mana. The term itself has no rules meaning.";
@@ -157,6 +160,7 @@ MTG_KEYWORDS{'prowess'}="{yellow}Prowess{white} is a triggered ability. \"Prowes
 MTG_KEYWORDS{'prowl'}="{yellow}Prowl{white} is a static ability. \"Prowl [cost]\" means \"You may pay [cost] rather than pay this spell's mana cost if a player was dealt combat damage this turn by a source that, at the time it dealt that damage, was under your control and had any of this spell's creature types.\"";
 MTG_KEYWORDS{'radiance'}="{yellow}Radiance{white} is an ability word that deals with permanents sharing a color. The term itself has no rules meaning.";
 MTG_KEYWORDS{'raid'}="{yellow}Raid{white} is an ability word on Mardu cards in Khans of Tarkir; it has no rules meaning. Raid generally refers to an ability that checks if you attacked with a creature this turn.";
+MTG_KEYWORDS{'rally'}="{yellow}Rally{white} is an ability word in Battle for Zendikar; it has no rules meaning. Rally generally refers to an ability that triggers when an Ally enters the battlefield.";
 MTG_KEYWORDS{'rampage'}="{yellow}Rampage{white} is a triggered ability. \"Rampage N\" means \"Whenever this creature becomes blocked, it gets +N/+N until end of turn for each creature blocking it beyond the first.\"";
 MTG_KEYWORDS{'reach'}="{yellow}Reach{white} is a static ability. A creature with flying can't be blocked except by creatures with flying and/or reach.";
 MTG_KEYWORDS{'rebound'}="{yellow}Rebound{white} is a static ability that functions on the stack and may create a delayed triggered ability. It means \"If this spell was cast from your hand, instead of putting it into your graveyard as it resolves, exile it and, at the beginning of your next upkeep, you may cast this card from exile without paying its mana cost.\"";
