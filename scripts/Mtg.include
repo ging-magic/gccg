@@ -5,7 +5,7 @@
 function{"add_text"}="add_text";
 function{"del_all_texts"}="del_all_texts";
 
-HELP{"chat"}{"startdraft"}[3]=HELP{"chat"}{"startdraft"}[3]+" Available cubes for MtG are Legacy and Holiday. Accepted syntaxes are '/startdraft n legacy cube' and '/startdraft n holiday cube'.";
+HELP{"chat"}{"startdraft"}[3]=HELP{"chat"}{"startdraft"}[3]+" Available cubes for MtG are Legacy, Holiday and Legendary. Therefore, accepted syntaxes are '/startdraft n legacy cube', '/startdraft n holiday cube' and '/startdraft n legendary cube'.";
 
 #these exist so the format filters don't get clogged with page after page of basic lands from early sets
 MIN_STANDARD_AGE=93;
@@ -1011,6 +1011,7 @@ def TokenSubmenuL
   Submenu("Select Token",(
    ("{blue}{sz12}<back>","","TokenSubmenu()"),
    ("Land Mine (A)","",'Send("Transfer",(1,("out.of.play",220),("play",0)))'),
+   ("Lightning Rager 5/1 (R, trample, haste)","",'Send("Transfer",(1,("out.of.play",273),("play",0)))'),
    ("Lizard 2/2 (G)","",'Send("Transfer",(1,("out.of.play",62),("play",0)))'),
   ));
 }
@@ -1090,6 +1091,7 @@ def TokenSubmenuS
    ("Spirit 1/1 (BW, flying)","",'Send("Transfer",(1,("out.of.play",83),("play",0)))'),
    ("Spirit 1/1 (W, flying)","",'Send("Transfer",(1,("out.of.play",84),("play",0)))'),
    ("Spirit 1/1 (U, flying)","",'Send("Transfer",(1,("out.of.play",166),("play",0)))'),
+   ("Spirit */* (BW)","",'Send("Transfer",(1,("out.of.play",274),("play",0)))'),
    ("Spirit Warrior */* (BG)","",'Send("Transfer",(1,("out.of.play",229),("play",0)))'),
    ("Squid 1/1 (U, islandwalk)","",'Send("Transfer",(1,("out.of.play",222),("play",0)))'),
    ("Stoneforged Blade (A)","",'Send("Transfer",(1,("out.of.play",239),("play",0)))'),

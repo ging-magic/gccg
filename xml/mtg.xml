@@ -104,6 +104,7 @@
   <cardset source="ori.xml"/>
   <cardset source="bfz.xml"/>
   <cardset source="exp.xml"/>
+  <cardset source="c15.xml"/>
 
   <image file="b.png" tag="{B}"/>
   <image file="g.png" tag="{G}"/>

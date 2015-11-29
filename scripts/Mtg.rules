@@ -1,5 +1,5 @@
 deck_rules=(,);
-server_description="Universal (BFZ)";
+server_description="Universal (C15)";
 
 deck_rules{"Empty"}=(,);
 deck_rules{"Empty"}{""}=(

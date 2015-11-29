@@ -246,6 +246,8 @@ def InitDistributions
   distribution{"ORI"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
   distribution{"BFZ"}=(,);
   distribution{"BFZ"}{"booster"}=((1,"L"),(1,"50*C+EXP/M"),(9,"C"),(3,"U"),(1,"2*R+M"));
+  distribution{"C15"}=(,);
+  distribution{"C15"}{"booster"}=((1,"L"),(10,"C"),(3,"U"),(1,"2*R+M"));
 }
 
 #

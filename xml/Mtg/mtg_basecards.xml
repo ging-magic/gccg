@@ -2576,8 +2576,8 @@ Equip {0}">
      <attr key="permanent" value="2" />
     </card>
     <card name="Gideon, Battle-Forged" graphics="ORI/GideonBattleForged.jpg" text="+2: Up to one target creature an opponent controls attacks Gideon, Battle-Forged during its controller's next turn if able.
-  +1: Until your next turn, target creature gains indestructible. Untap that creature.
-  0: Until end of turn, Gideon, Battle-Forged becomes a 4/4 Human Soldier creature with indestructible that's still a planeswalker. Prevent all damage that would be dealt to him this turn.">
++1: Until your next turn, target creature gains indestructible. Untap that creature.
+0: Until end of turn, Gideon, Battle-Forged becomes a 4/4 Human Soldier creature with indestructible that's still a planeswalker. Prevent all damage that would be dealt to him this turn.">
      <attr key="rarity" value="M" />
      <attr key="cn" value="23" />
      <attr key="permanent" value="1" />
@@ -2600,8 +2600,8 @@ Equip {0}">
      <attr key="flipid" value="23547" />
     </card>
     <card name="Chandra, Roaring Flame" graphics="ORI/ChandraRoaringFlame.jpg" text="+1: Chandra, Roaring Flame deals 2 damage to target player.
-  ?2: Chandra, Roaring Flame deals 2 damage to target creature.
-  ?7: Chandra, Roaring Flame deals 6 damage to each opponent. Each player dealt damage this way gets an emblem with 'At the beginning of your upkeep, this emblem deals 3 damage to you.'">
+-2: Chandra, Roaring Flame deals 2 damage to target creature.
+-7: Chandra, Roaring Flame deals 6 damage to each opponent. Each player dealt damage this way gets an emblem with 'At the beginning of your upkeep, this emblem deals 3 damage to you.'">
      <attr key="rarity" value="M" />
      <attr key="cn" value="106" />
      <attr key="permanent" value="1" />
@@ -2624,8 +2624,8 @@ Equip {0}">
      <attr key="flipid" value="23452" />
     </card>
     <card name="Liliana, Defiant Necromancer" graphics="ORI/LilianaDefiantNecromancer.jpg" text="+2: Each player discards a card.
-  ?X: Return target nonlegendary creature card with converted mana cost X from your graveyard to the battlefield.
-  ?8: You get an emblem with 'Whenever a creature dies, return it to the battlefield under your control at the beginning of the next end step.'">
+-X: Return target nonlegendary creature card with converted mana cost X from your graveyard to the battlefield.
+-8: You get an emblem with 'Whenever a creature dies, return it to the battlefield under your control at the beginning of the next end step.'">
      <attr key="rarity" value="M" />
      <attr key="cn" value="106" />
      <attr key="permanent" value="1" />
@@ -2648,8 +2648,8 @@ Equip {0}">
      <attr key="flipid" value="23551" />
     </card>
     <card name="Jace, Telepath Unbound" graphics="ORI/JaceTelepathUnbound.jpg" text="+1: Up to one target creature gets -2/-0 until your next turn.
-?3: You may cast target instant or sorcery card from your graveyard this turn. If that card would be put into your graveyard this turn, exile it instead.
-?9: You get an emblem with 'Whenever you cast a spell, target opponent puts the top five cards of his or her library into his or her graveyard.'">
+-3: You may cast target instant or sorcery card from your graveyard this turn. If that card would be put into your graveyard this turn, exile it instead.
+-9: You get an emblem with 'Whenever you cast a spell, target opponent puts the top five cards of his or her library into his or her graveyard.'">
      <attr key="rarity" value="M" />
      <attr key="cn" value="60" />
      <attr key="permanent" value="1" />
@@ -2671,8 +2671,8 @@ Equip {0}">
      <attr key="flipid" value="23537" />
     </card>
     <card name="Nissa, Sage Animist" graphics="ORI/NissaSageAnimist.jpg" text="+1: Reveal the top card of your library. If it's a land card, put it onto the battlefield. Otherwise, put it into your hand.
-?2: Put a legendary 4/4 green Elemental creature token named Ashaya, the Awoken World onto the battlefield.
-?7: Untap up to six target lands. They become 6/6 Elemental creatures. They're still lands.">
+-2: Put a legendary 4/4 green Elemental creature token named Ashaya, the Awoken World onto the battlefield.
+-7: Untap up to six target lands. They become 6/6 Elemental creatures. They're still lands.">
      <attr key="rarity" value="M" />
      <attr key="cn" value="60" />
      <attr key="permanent" value="1" />
@@ -2775,9 +2775,24 @@ Whenever a land enters the battlefield under your control, if you control seven 
     <card name="Emblem: Ob Nixilis Reignited" graphics="Emblems/Emblem_ObNixilisReignited.jpg" text="Whenever a player draws a card, you lose 2 life.">
      <attr key="permanent" value="2" />
     </card>
-    <card name="3" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
+    <card name="Lightning Rager" graphics="Tokens/LightningRager51R.jpg" text="Trample, haste
+At the beginning of the end step, sacrifice this creature.">
+     <attr key="color" value="Red" />
+     <attr key="coloridentity" value="2" />
+     <attr key="type" value="Token Creature" />
+     <attr key="subtype" value="Elemental" />
+     <attr key="power" value="5" />
+     <attr key="toughness" value="1" />
+     <attr key="permanent" value="1" />
     </card>
-    <card name="4" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
+    <card name="Spirit" graphics="Tokens/SpiritXXBW.jpg" text="This creature's power and toughness are each equal to the number of experience counters you have.">
+     <attr key="color" value="Black White" />
+     <attr key="coloridentity" value="20" />
+     <attr key="type" value="Token Creature" />
+     <attr key="subtype" value="Spirit" />
+     <attr key="power" value="*" />
+     <attr key="toughness" value="*" />
+     <attr key="permanent" value="1" />
     </card>
     <card name="5" graphics="" text="THIS IS A FREE SLOT, USE THIS ONE AND NEVER CREATE MORE!!!">
     </card>

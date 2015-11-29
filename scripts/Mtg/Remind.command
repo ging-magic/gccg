@@ -24,7 +24,7 @@ MTG_KEYWORDS{''}="{green}List of available keywords\n
 {yellow}J: {white}Join Forces.\n
 {yellow}K: {white}Kicker, Kinship.\n
 {yellow}L: {white}Landfall, Landwalk, Level Up, Lieutenant, Lifelink, Living Weapon.\n
-{yellow}M: {white}Madness, Manifest, Megamorph, Menace, Metalcraft, Miracle, Modular, Monstrosity, Morbid, Morph, Multikicker.\n
+{yellow}M: {white}Madness, Manifest, Megamorph, Menace, Metalcraft, Miracle, Modular, Monstrosity, Morbid, Morph, Multikicker, Myriad.\n
 {yellow}N: {white}Ninjutsu.\n
 {yellow}O: {white}Offering, Outlast, Overload.\n
 {yellow}P: {white}Parley, Persist, Phasing, Poisonous, Populate, Proliferate, Protection, Provoke, Prowess, Prowl.\n
@@ -144,6 +144,7 @@ MTG_KEYWORDS{'monstrosity'}="{yellow}Monstrosity{white} is a keyword action. If 
 MTG_KEYWORDS{'morbid'}="{yellow}Morbid{white} is an ability word related to creatures dying. The term itself has no rules meaning.";
 MTG_KEYWORDS{'morph'}="{yellow}Morph{white} is a static ability. \"Morph [cost]\" means \"You may cast this card as a 2/2 face-down creature, with no text, no name, no subtypes, no expansion symbol, and no mana cost by paying {3} rather than paying its mana cost.\"";
 MTG_KEYWORDS{'multikicker'}="{yellow}Multikicker{white} is a variant of the {yellow}kicker{white} ability. \"Multikicker [cost]\" means \"You may pay an additional [cost] any number of times as you cast this spell.\" A multikicker cost is a kicker cost.";
+MTG_KEYWORDS{'myriad'}="Myriad is a triggered ability that may also create a delayed triggered ability. \"Myriad\" means \"Whenever this creature attacks, for each opponent other than defending player, you may put a token that's a copy of this creature onto the battlefield tapped and attacking that player or a planeswalker he or she controls. If you put one or more tokens onto the battlefield this way, exile the tokens at end of combat.\" If a creature has multiple instances of myriad, each triggers separately.";
 MTG_KEYWORDS{'ninjutsu'}="{yellow}Ninjutsu{white} is an activated ability. \"Ninjutsu [cost]\" means \"[Cost], Reveal this card from your hand, Return an unblocked attacking creature you control to its owner's hand: Put this card onto the battlefield from your hand tapped and attacking.\"";
 MTG_KEYWORDS{'offering'}="{yellow}Offering{white} is a static ability. \"[Subtype] offering\" means \"You may cast this card any time you could cast an instant by sacrificing a [subtype] permanent. If you do, the total cost to cast this card is reduced by the sacrificed permanent's mana cost.\"";
 MTG_KEYWORDS{'outlast'}="{yellow}Outlast{white} is an activated ability. \"Outlast [cost]\" means \"[Cost], {T}: Put a +1/+1 counter on this creature. Activate this ability only any time you could cast a sorcery.\"";
